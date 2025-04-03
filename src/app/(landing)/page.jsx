@@ -1,15 +1,32 @@
-import React from 'react'
+'use client'
+
+import { React, useState, useEffect } from 'react'
 import Link from 'next/link'
 
+const images = [
+    "https://png.pngtree.com/thumb_back/fh260/background/20240724/pngtree-sky-image-bg-the-clouds-are-a-mix-of-dark-grays-image_16020179.jpg",
+    "https://imageio.forbes.com/specials-images/imageserve/641474e41be43e91f6c324b7/Nothing-empowers-you-more-than-owning-your-own-small-business/960x0.jpg?height=462&width=711&fit=bounds",
+    "https://www.vietnamworks.com/hrinsider/wp-content/uploads/2024/08/Business-unit-la-gi-2.jpg"
+];
 
 function page() {
+    const [currentImage, setCurrentImage] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImage((prev) => (prev + 1) % images.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
     return (
         <>
-            <section className="relative h-screen flex items-center justify-center text-center text-black">
-                {/* Background Image */}
-                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/hero-banner.jpg')" }}>
-                    <div className="absolute inset-0 bg-white bg-opacity-50"></div>
-                </div>
+            <section className="relative h-screen flex items-center justify-center text-center text-white">
+                {/* Background Carousel */}
+                <div
+                    className="absolute inset-0 bg-cover bg-center transition-all duration-1000"
+                    style={{ backgroundImage: `url(${images[currentImage]})` }}
+                ></div>
+                <div className="absolute inset-0 bg-black opacity-50"></div>
 
                 {/* Content */}
                 <div className="relative z-10 px-6 md:px-12 max-w-3xl">
@@ -19,12 +36,9 @@ function page() {
                     <p className="text-lg md:text-xl mb-6">
                         ThamZeal International is shaping the future with cutting-edge technology and digital solutions.
                     </p>
-                    <a
-                        href="/contact"
-                        className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg text-lg transition duration-300"
-                    >
-                        Get in Touch
-                    </a>
+                    <Link href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg text-lg transition duration-300">
+                            Get in Touch
+                    </Link>
                 </div>
             </section>
             <section className="text-white bg-black py-16">

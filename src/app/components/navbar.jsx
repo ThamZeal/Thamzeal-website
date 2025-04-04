@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from './button';
 
-const nav_links = ["about", "business", "contact"]
+const nav_links = ["home","about", "business", "contact"]
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +23,7 @@ export default function Navbar() {
                     {nav_links.map((item) => (
                         <li key={item}>
                             <Link
-                                href={`/${item}`}
+                                href={item=='home'? '/' : `/${item}`}
                                 className="relative text-black hover:text-[#065C9B] transition-all duration-300"
                             >
                                 {item.charAt(0).toUpperCase() + item.slice(1)}

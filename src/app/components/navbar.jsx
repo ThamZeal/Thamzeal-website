@@ -3,25 +3,26 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import Button from './button';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="bg-white text-black p-4 shadow-md sticky top-0 z-50">
-            <div className="container flex justify-between items-center max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+        <nav className="container flex justify-center p-4 max-w-full sticky top-5 z-50">
+            <div className="container drop-shadow-sm flex bg-white justify-between items-center max-w-[1400px] mx-auto py-4 rounded-2xl px-4 sm:px-6 md:px-8 lg:px-12">
                 <Link href="/" className="text-xl font-bold text-black flex items-center space-x-2">
                     <img src="logo.svg" width={84} alt="ThamZeal Logo" className="h-10 w-auto" />
-                    <span className="hidden sm:block">ThamZeal International</span>
+                    <span className="text-lg">ThamZeal <br></br> International</span>
                 </Link>
 
                 {/* Desktop Menu */}
                 <ul className="hidden md:flex space-x-6">
-                    {["about", "services", "blog", "careers", "contact"].map((item) => (
+                    {["home", "about", "business", "blog", "contact"].map((item) => (
                         <li key={item}>
                             <Link
                                 href={`/${item}`}
-                                className="relative hover:text-gray-400 transition-all duration-300"
+                                className="relative hover:text-[#065C9B] transition-all duration-300"
                             >
                                 {item.charAt(0).toUpperCase() + item.slice(1)}
                                 <motion.div
@@ -35,10 +36,9 @@ export default function Navbar() {
                 </ul>
 
                 {/* Desktop Enquire Button */}
-                <a href="" className="hidden md:block bg-blue-700 text-white rounded-full px-5 py-2 transition-all duration-300 hover:bg-blue-800 hover:scale-105">
-                    Enquire Now
-                </a>
-
+                <div className='hidden md:block'>
+                    <Button type='primary' title='Enquire now' />
+                </div>
                 {/* Mobile Menu Button */}
                 <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -78,15 +78,8 @@ export default function Navbar() {
                         </ul>
 
                         {/* Mobile Enquire Button */}
-                        <motion.a
-                            href=""
-                            className="mt-6 w-full text-center bg-blue-700 text-white rounded-full px-5 py-3 transition-all duration-300 hover:bg-blue-800 hover:scale-105"
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.2 }}
-                        >
-                            Enquire Now
-                        </motion.a>
+                        <Button type='primary' title='Enquire now' />
+
                     </motion.div>
                 )}
             </AnimatePresence>

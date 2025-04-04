@@ -1,6 +1,7 @@
 import { Poppins, Roboto } from 'next/font/google';
 import "./globals.css";
 import Navbar from './components/navbar';
+import Footer from './components/footer';
 
 // Load fonts with specific weights
 const poppins = Poppins({
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
       <body className='bg-white text-black '>
         <Navbar/>
         {children}
+        <Footer/>
         </body>
     </html>
   );

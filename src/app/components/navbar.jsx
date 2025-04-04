@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from './button';
 
+const nav_links = ["about", "business", "contact"]
+
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -18,11 +20,11 @@ export default function Navbar() {
 
                 {/* Desktop Menu */}
                 <ul className="hidden md:flex space-x-6">
-                    {["home", "about", "business", "blog", "contact"].map((item) => (
+                    {nav_links.map((item) => (
                         <li key={item}>
                             <Link
                                 href={`/${item}`}
-                                className="relative hover:text-[#065C9B] transition-all duration-300"
+                                className="relative text-black hover:text-[#065C9B] transition-all duration-300"
                             >
                                 {item.charAt(0).toUpperCase() + item.slice(1)}
                                 <motion.div
@@ -40,7 +42,7 @@ export default function Navbar() {
                     <Button type='primary' title='Enquire now' />
                 </div>
                 {/* Mobile Menu Button */}
-                <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+                <button className="md:hidden text-black" onClick={() => setIsOpen(!isOpen)}>
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
             </div>
@@ -53,13 +55,13 @@ export default function Navbar() {
                         animate={{ x: 0 }}
                         exit={{ x: "100%" }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="md:hidden fixed top-0 right-0 w-3/4 h-full bg-white z-50 p-6 flex flex-col items-start space-y-6 shadow-lg"
+                        className="md:hidden text-black fixed top-0 right-0 w-3/4 h-full bg-white z-50 p-6 flex flex-col items-start space-y-6 shadow-lg"
                     >
                         <button className="self-end mb-4" onClick={() => setIsOpen(false)}>
                             <X size={28} />
                         </button>
                         <ul className="flex flex-col space-y-4 w-full">
-                            {["about", "services", "blog", "careers", "contact"].map((item) => (
+                            {nav_links.map((item) => (
                                 <motion.li
                                     key={item}
                                     initial={{ opacity: 0, x: 30 }}

@@ -1,14 +1,14 @@
-'use client'
+"use client";
 
-import { React, useState, useEffect } from 'react'
-import Button from '../components/button';
+import { React, useState, useEffect } from "react";
+import Button from "../components/button";
 import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
     "/banners/transport-logistics-products.jpg",
     "/banners/aerial-view-business-team.jpg",
     "/banners/man-using-tablet-work-connect-with-others.jpg",
-    "/banners/group-diverse-people-having-business-meeting_53876-25060.jpg"
+    "/banners/group-diverse-people-having-business-meeting_53876-25060.jpg",
 ];
 
 const blogs = [
@@ -30,7 +30,7 @@ const blogs = [
         date: "November 5, 2025",
         img: "https://imageio.forbes.com/specials-images/imageserve/641474e41be43e91f6c324b7/Nothing-empowers-you-more-than-owning-your-own-small-business/960x0.jpg?height=462&width=711&fit=bounds",
     },
-]
+];
 
 const reviews = [
     {
@@ -54,14 +54,27 @@ const reviews = [
 ];
 
 const brand_divisions = [
-    { title: "Tech IT Solutions (Collaboration with Xyberai LLC)", desc: "Pioneering digital products and applications for transformative solutions." },
-    { title: "E-commerce & Retail", desc: "Creating seamless online shopping experiences for customers worldwide." },
-    { title: "Import & Export", desc: "Providing essential utility solutions for everyday convenience." },
-    { title: "F&B Chain", desc: "Open to exciting partnerships and collaborations in various industries." },
-    { title: "AI-Driven Innovations", desc: "Pioneering digital products and applications for transformative solutions." },
-]
-
-
+    {
+        title: "Tech IT Solutions (Collaboration with Xyberai LLC)",
+        desc: "Pioneering digital products and applications for transformative solutions.",
+    },
+    {
+        title: "E-commerce & Retail",
+        desc: "Creating seamless online shopping experiences for customers worldwide.",
+    },
+    {
+        title: "Import & Export",
+        desc: "Providing essential utility solutions for everyday convenience.",
+    },
+    {
+        title: "F&B Chain",
+        desc: "Open to exciting partnerships and collaborations in various industries.",
+    },
+    {
+        title: "AI-Driven Innovations",
+        desc: "Pioneering digital products and applications for transformative solutions.",
+    },
+];
 
 function page() {
     const [index, setIndex] = useState(0);
@@ -93,33 +106,56 @@ function page() {
 
                 {/* Content */}
                 <div className="relative z-10 px-6 md:px-12 max-w-3xl">
-                    <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                    <motion.h1 initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        viewport={{ once: true }} className="text-4xl md:text-6xl font-bold mb-4">
                         Innovate. Elevate. Transform.
-                    </h1>
-                    <p className="text-lg md:text-xl mb-6">
-                        ThamZeal International is shaping the future with cutting-edge technology and digital solutions.
-                    </p>
-                    <div className="flex flex-col md:flex-row justify-center items-center gap-4">
-                        <Button type='primary' title='Know more' />
-                        <Button type='Secondary' title="Let's talk about your business ?" />
-                    </div>
-                    
+                    </motion.h1>
+                    <motion.p initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        viewport={{ once: true }} className="text-lg md:text-xl mb-6">
+                        ThamZeal International is shaping the future with cutting-edge
+                        technology and digital solutions.
+                    </motion.p>
+                    <motion.div initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        viewport={{ once: true }} className="flex flex-col md:flex-row justify-center items-center gap-4">
+                        <Button type="primary" title="Know more" />
+                        <Button type="Secondary" title="Let's talk about your business ?" />
+                    </motion.div>
                 </div>
             </section>
             <section className="text-white bg-black py-16">
                 <div className="container relative flex flex-col-reverse md:flex-row items-center justify-center w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-
                     {/* Left Text Section */}
                     <div className="w-full md:w-1/2 text-left">
-                        <h1 className="text-4xl md:text-5xl font-bold pb-5">
+                        <motion.h1 initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }} className="text-4xl md:text-5xl font-bold pb-5">
                             About ThamZeal International
-                        </h1>
-                        <p className="text-gray-300 leading-relaxed">
-                            ThamZeal International is an emerging innovation-driven startup officially registered in January 2025 and operational since 2024. Their mission is to develop and sell their own digital products, applications, and utility solutions. Similar to Google, they aim to be a product-first company creating transformative products across multiple industries including technology, e-commerce, utilities, and F&B chains in the future.
-                        </p>
-                        <div className="mt-8">
-                            <Button type='primary' title='Know more' />
-                        </div>
+                        </motion.h1>
+                        <motion.p initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }} className="text-gray-300 leading-relaxed">
+                            ThamZeal International is an emerging innovation-driven startup
+                            officially registered in January 2025 and operational since 2024.
+                            Their mission is to develop and sell their own digital products,
+                            applications, and utility solutions. Similar to Google, they aim
+                            to be a product-first company creating transformative products
+                            across multiple industries including technology, e-commerce,
+                            utilities, and F&B chains in the future.
+                        </motion.p>
+                        <motion.div initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }} className="mt-8">
+                            <Button type="primary" title="Know more" />
+                        </motion.div>
                     </div>
 
                     {/* Right Image Section */}
@@ -130,72 +166,119 @@ function page() {
                             alt="ThamZeal"
                         />
                     </div>
-
                 </div>
             </section>
 
             <section className="w-full bg-white py-16">
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-
                     {/* Section Heading */}
                     <div className="text-gray-900 text-left mb-10">
-                        <h1 className="text-4xl md:text-5xl font-bold ">
-                            Brand Divisions
-                        </h1>
-                        <p>Explore our diverse brand divisions and exciting collaboration opportunities.</p>
+                        <motion.h1 initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }} className="text-4xl md:text-5xl font-bold ">Brand Divisions</motion.h1>
+                        <motion.p initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }}>
+                            Explore our diverse brand divisions and exciting collaboration
+                            opportunities.
+                        </motion.p>
                     </div>
-                    
 
                     {/* Responsive Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
-
                         {/* Cards */}
                         {brand_divisions.map((item, index) => (
-                            <div key={index} className="bg-white hover:scale-105 hover:bg-blue-200 transition-all duration-300 border-2 border-black hover:border-[#065C9B] p-8 rounded-2xl shadow-lg">
-                                <h2 className="text-2xl font-bold text-gray-800 mb-3">{item.title}</h2>
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                                viewport={{ once: true }}
+                                key={index}
+                                className="bg-white hover:scale-105 hover:bg-blue-200 transition-all duration-300 border-2 border-black hover:border-[#065C9B] p-8 rounded-2xl shadow-lg"
+                            >
+                                <h2 className="text-2xl font-bold text-gray-800 mb-3">
+                                    {item.title}
+                                </h2>
                                 <p className="text-gray-700">{item.desc}</p>
-                            </div>
+                            </motion.div>
                         ))}
-                        <a href="" className="bg-[#065C9B] hover:scale-105 text-2xl p-8 rounded-2xl shadow-lg text-white text-center flex justify-center items-center hover:bg-[#1E85C2] transition-all duration-300"> know more</a>
+                        <motion.a
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }}
+                            href=""
+                            className="bg-[#065C9B] hover:scale-105 text-2xl p-8 rounded-2xl shadow-lg text-white text-center flex justify-center items-center hover:bg-[#1E85C2] transition-all duration-300"
+                        >
+                            {" "}
+                            know more
+                        </motion.a>
                     </div>
                 </div>
             </section>
 
             {/* CTA section */}
             <section className="w-full bg-gradient-to-r from-[#4047A7] to-[#4EAADA] py-16 h-auto">
-                <div className='max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col md:flex-row justify-center items-start md:items-center gap-4'>
-                    <h1 className="text-white text-2xl">Looking to grow your business with our expert support?</h1>
-                    <Button type='secondary' title="Let's talk business !!"></Button>
-                </div>
-                
+                <motion.div initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    viewport={{ once: true }} className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col md:flex-row justify-center items-start md:items-center gap-4">
+                    <h1 className="text-white text-2xl">
+                        Looking to grow your business with our expert support?
+                    </h1>
+                    <Button type="secondary" title="Let's talk business !!"></Button>
+                </motion.div>
             </section>
 
             <section className="w-full bg-gray-50 py-16">
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-
                     {/* Section Heading */}
                     <div className="text-gray-900 text-left mb-10">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-3">
+                        <motion.h1 initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }} className="text-4xl md:text-5xl font-bold mb-3">
                             Explore Our Blog
-                        </h1>
-                        <p>Explore our diverse brand divisions and exciting collaboration opportunities.</p>
+                        </motion.h1>
+                        <motion.p initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }}>
+                            Explore our diverse brand divisions and exciting collaboration
+                            opportunities.
+                        </motion.p>
                     </div>
 
                     {/* Responsive Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
                         {/* Blog Cards */}
                         {blogs.map((post, index) => (
-                            <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                                <img className="w-full h-56 object-cover" src={post.img} alt={post.title} />
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                                viewport={{ once: true }}
+                                key={index}
+                                className="bg-white rounded-2xl shadow-lg overflow-hidden"
+                            >
+                                <img
+                                    className="w-full h-56 object-cover"
+                                    src={post.img}
+                                    alt={post.title}
+                                />
                                 <div className="p-6">
-                                    <h2 className="text-2xl font-bold text-gray-800">{post.title}</h2>
+                                    <h2 className="text-2xl font-bold text-gray-800">
+                                        {post.title}
+                                    </h2>
                                     <p className="text-gray-600 mt-2">{post.desc}</p>
-                                    <p className="text-slate-400 text-lg italic mt-3">{post.date}</p>
+                                    <p className="text-slate-400 text-lg italic mt-3">
+                                        {post.date}
+                                    </p>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
-
                     </div>
                 </div>
             </section>
@@ -205,9 +288,12 @@ function page() {
             <section className="w-full bg-black py-16">
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col md:flex-row justify-center items-start md:items-center gap-8">
                     {/* Heading */}
-                    <h1 className="text-white text-4xl md:text-5xl font-bold">
+                    <motion.h1 initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        viewport={{ once: true }} className="text-white text-4xl md:text-5xl font-bold">
                         See what our customers have to say.
-                    </h1>
+                    </motion.h1>
 
                     {/* Review Card */}
                     <div className="relative w-full max-w-lg">
@@ -226,7 +312,9 @@ function page() {
                                     className="w-14 h-14 rounded-full"
                                 />
                                 <div>
-                                    <h3 className="font-semibold text-lg">{reviews[index].name}</h3>
+                                    <h3 className="font-semibold text-lg">
+                                        {reviews[index].name}
+                                    </h3>
                                     <p className="text-gray-700">{reviews[index].text}</p>
                                 </div>
                             </motion.div>
@@ -239,34 +327,38 @@ function page() {
 
             <section className="w-full bg-gray-50 py-16">
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-
                     {/* Section Heading */}
                     <div className="text-gray-900 text-left mb-10">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-3">
+                        <motion.h1 initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }} className="text-4xl md:text-5xl font-bold mb-3">
                             Partnering with
-                        </h1>
-                        <p>Explore our diverse brand divisions and exciting collaboration opportunities.</p>
+                        </motion.h1>
+                        <motion.p initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }}>
+                            Explore our diverse brand divisions and exciting collaboration
+                            opportunities.
+                        </motion.p>
                     </div>
 
                     {/* Partner Logo */}
-                    <div className="mt-12 flex justify-center">
-                        
-                            <img
-                                src="/images/xyberai.jpeg"
-                                alt="XyberAI Logo"
-                                className="h-50 w-auto border border-black rounded-2xl"
-                            />
-                        
-                    </div>
+                    <motion.div initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        viewport={{ once: true }} className="mt-12 flex justify-center">
+                        <img
+                            src="/images/xyberai.jpeg"
+                            alt="XyberAI Logo"
+                            className="h-50 w-auto border border-black rounded-2xl"
+                        />
+                    </motion.div>
                 </div>
             </section>
-
-
-
-                
-            
         </>
-    )
+    );
 }
 
-export default page
+export default page;

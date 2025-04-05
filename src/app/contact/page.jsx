@@ -91,7 +91,7 @@ function ContactUs() {
                 {/* Background Image */}
                 <div
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url('/banners/group-diverse-people-having-business-meeting_53876-25060.webp')` }}
+                    style={{ backgroundImage: `url('/banners/into-success-group-young-freelancers-office-have-conversation-smiling.webp')` }}
                 ></div>
                 <div className="absolute inset-0 bg-black opacity-50"></div>
 

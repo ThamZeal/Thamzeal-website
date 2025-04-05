@@ -3,12 +3,13 @@
 import { React, useState, useEffect } from "react";
 import Button from "../components/button";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const images = [
-    "/banners/transport-logistics-products.jpg",
-    "/banners/aerial-view-business-team.jpg",
-    "/banners/man-using-tablet-work-connect-with-others.jpg",
-    "/banners/group-diverse-people-having-business-meeting_53876-25060.jpg",
+    "/banners/transport-logistics-products.webp",
+    "/banners/aerial-view-business-team.webp",
+    "/banners/man-using-tablet-work-connect-with-others.webp",
+    "/banners/group-diverse-people-having-business-meeting_53876-25060.webp",
 ];
 
 const blogs = [
@@ -87,44 +88,90 @@ function page() {
     }, []);
 
     const [currentImage, setCurrentImage] = useState(0);
+    const [prevImage, setPrevImage] = useState(0);
+    const [fade, setFade] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
+            setPrevImage(currentImage);
             setCurrentImage((prev) => (prev + 1) % images.length);
+            setFade(true);
+            setTimeout(() => setFade(false), 1000); // match transition duration
         }, 5000);
         return () => clearInterval(interval);
-    }, []);
+    }, [currentImage, images.length]);
+
+
     return (
         <>
-            <section className="relative h-screen -mt-28 flex items-center justify-center text-center text-white">
-                {/* Background Carousel */}
-                <div
-                    className="absolute inset-0 bg-cover bg-center transition-all duration-1000"
-                    style={{ backgroundImage: `url(${images[currentImage]})` }}
-                ></div>
-                <div className="absolute inset-0 bg-black opacity-50"></div>
+            <section className="relative h-screen -mt-28 flex items-center justify-center text-center bg-black text-white overflow-hidden">
+                {/* Background Carousel using next/image */}
+                <motion.div
+                    key={images[prevImage]}
+                    className="absolute inset-0"
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: fade ? 0 : 0 }}
+                    transition={{ duration: 1 }}
+                >
+                    <Image
+                        src={images[prevImage]}
+                        alt="Previous"
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                </motion.div>
+
+                {/* Current Image (fading in) */}
+                <motion.div
+                    key={images[currentImage] + "-current"}
+                    className="absolute inset-0"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                >
+                    <Image
+                        src={images[currentImage]}
+                        alt="Current"
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                </motion.div>
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
                 {/* Content */}
                 <div className="relative z-10 px-6 md:px-12 max-w-3xl">
-                    <motion.h1 initial={{ opacity: 0, y: 20 }}
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        viewport={{ once: true }} className="text-4xl md:text-6xl font-bold mb-4">
+                        viewport={{ once: true }}
+                        className="text-4xl md:text-6xl font-bold mb-4"
+                    >
                         Innovate. Elevate. Transform.
                     </motion.h1>
-                    <motion.p initial={{ opacity: 0, y: 20 }}
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        viewport={{ once: true }} className="text-lg md:text-xl mb-6">
+                        transition={{ delay: 0.3 }}
+                        viewport={{ once: true }}
+                        className="text-lg md:text-xl mb-6"
+                    >
                         ThamZeal International is shaping the future with cutting-edge
                         technology and digital solutions.
                     </motion.p>
-                    <motion.div initial={{ opacity: 0, y: 20 }}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        viewport={{ once: true }} className="flex flex-col md:flex-row justify-center items-center gap-4">
+                        transition={{ delay: 0.4 }}
+                        viewport={{ once: true }}
+                        className="flex flex-col md:flex-row justify-center items-center gap-4"
+                    >
                         <Button type="primary" title="Know more" />
-                        <Button type="Secondary" title="Let's talk about your business ?" />
+                        <Button type="secondary" title="Let's talk about your business ?" />
                     </motion.div>
                 </div>
             </section>
@@ -232,56 +279,7 @@ function page() {
                 </motion.div>
             </section>
 
-            <section className="w-full bg-gray-50 py-16">
-                <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-                    {/* Section Heading */}
-                    <div className="text-gray-900 text-left mb-10">
-                        <motion.h1 initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            viewport={{ once: true }} className="text-4xl md:text-5xl font-bold mb-3">
-                            Explore Our Blog
-                        </motion.h1>
-                        <motion.p initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            viewport={{ once: true }}>
-                            Explore our diverse brand divisions and exciting collaboration
-                            opportunities.
-                        </motion.p>
-                    </div>
-
-                    {/* Responsive Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {/* Blog Cards */}
-                        {blogs.map((post, index) => (
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.2 }}
-                                viewport={{ once: true }}
-                                key={index}
-                                className="bg-white rounded-2xl shadow-lg overflow-hidden"
-                            >
-                                <img
-                                    className="w-full h-56 object-cover"
-                                    src={post.img}
-                                    alt={post.title}
-                                />
-                                <div className="p-6">
-                                    <h2 className="text-2xl font-bold text-gray-800">
-                                        {post.title}
-                                    </h2>
-                                    <p className="text-gray-600 mt-2">{post.desc}</p>
-                                    <p className="text-slate-400 text-lg italic mt-3">
-                                        {post.date}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            
 
             {/* testimonials */}
 

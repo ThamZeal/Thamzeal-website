@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from './button';
 
@@ -14,10 +15,17 @@ export default function Navbar() {
         <nav className="container flex justify-center p-4 max-w-full sticky top-5 z-50">
             <div className="container drop-shadow-sm flex bg-white justify-between items-center max-w-[1400px] mx-auto py-4 rounded-2xl px-4 sm:px-6 md:px-8 lg:px-12">
                 <Link href="/" className="text-xl font-bold text-black flex items-center space-x-2">
-                    <img src="logo.svg" width={84} alt="ThamZeal Logo" className="h-10 w-auto" />
-                    <span className="text-lg">ThamZeal <br></br> International</span>
+                    <Image
+                        src="/logo.svg"
+                        width={84}
+                        height={0} 
+                        alt="ThamZeal Logo"
+                        className="h-5 md:h-10 w-auto"
+                    />
+                    <span className="text-lg hidden md:block">
+                        ThamZeal <br /> International
+                    </span>
                 </Link>
-
                 {/* Desktop Menu */}
                 <ul className="hidden md:flex space-x-6">
                     {nav_links.map((item) => (
@@ -69,7 +77,7 @@ export default function Navbar() {
                                     transition={{ delay: 0.1 }}
                                 >
                                     <Link
-                                        href={`/${item}`}
+                                        href={item == 'home' ? '/' : `/${item}`}
                                         className="block text-lg hover:text-gray-400 transition-all duration-300"
                                         onClick={() => setIsOpen(false)}
                                     >

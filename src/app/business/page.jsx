@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Button from "../components/button";
+import Image from "next/image";
 
 const brand_divisions = [
     {
@@ -35,37 +36,41 @@ function Business() {
             {/* Hero Section */}
             <section className="relative h-screen -mt-28 flex items-center justify-center text-center text-white">
                 {/* Background Image */}
-                <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url('/banners/transport-logistics-products.jpg')` }}
-                ></div>
-                <div className="absolute inset-0 bg-black opacity-60"></div>
+                <div className="absolute inset-0">
+                    <Image
+                        src={"/banners/transport-logistics-products.webp"}
+                        alt="Current"
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                </div>
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
                 {/* Content */}
                 <div className="relative z-10 px-6 md:px-12 max-w-3xl">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        viewport={{ once: true }}
                         className="text-4xl md:text-6xl font-bold mb-4"
                     >
                         Our Business Divisions
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
-                        viewport={{ once: true }}
                         className="text-lg md:text-xl mb-6"
                     >
                         Explore our diverse brand divisions and exciting collaboration opportunities.
                     </motion.p>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
-                        viewport={{ once: true }}
                         className="flex flex-col md:flex-row justify-center items-center gap-4"
                     >
                         <Button type="primary" title="Explore Divisions" />
@@ -121,7 +126,7 @@ function Business() {
                             transition={{ delay: 0.3 }}
                             viewport={{ once: true }}
                             className="rounded-2xl w-full max-w-sm md:max-w-md lg:max-w-lg"
-                            src="/banners/aerial-view-business-team.jpg"
+                            src="/banners/aerial-view-business-team.webp"
                             alt="ThamZeal Business Portfolio"
                         />
                     </div>
@@ -154,24 +159,24 @@ function Business() {
 
                     {/* Divisions Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
-                                            {/* Cards */}
-                                            {brand_divisions.map((item, index) => (
-                                                <motion.div
-                                                    initial={{ opacity: 0, y: 20 }}
-                                                    whileInView={{ opacity: 1, y: 0 }}
-                                                    transition={{ delay: 0.2 }}
-                                                    viewport={{ once: true }}
-                                                    key={index}
-                                                    className="bg-white hover:scale-105 hover:bg-blue-200 transition-all duration-300 border-2 border-black hover:border-[#065C9B] p-8 rounded-2xl shadow-lg"
-                                                >
-                                                    <h2 className="text-2xl font-bold text-gray-800 mb-3">
-                                                        {item.title}
-                                                    </h2>
-                                                    <p className="text-gray-700">{item.desc}</p>
-                                                </motion.div>
-                                            ))}
-                                            
-                                        </div>
+                        {/* Cards */}
+                        {brand_divisions.map((item, index) => (
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                                viewport={{ once: true }}
+                                key={index}
+                                className="bg-white hover:scale-105 hover:bg-blue-200 transition-all duration-300 border-2 border-black hover:border-[#065C9B] p-8 rounded-2xl shadow-lg"
+                            >
+                                <h2 className="text-2xl font-bold text-gray-800 mb-3">
+                                    {item.title}
+                                </h2>
+                                <p className="text-gray-700">{item.desc}</p>
+                            </motion.div>
+                        ))}
+
+                    </div>
                 </div>
             </section>
 

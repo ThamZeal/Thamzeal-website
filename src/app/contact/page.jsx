@@ -91,7 +91,7 @@ function ContactUs() {
                 {/* Background Image */}
                 <div
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url('/banners/group-diverse-people-having-business-meeting_53876-25060.jpg')` }}
+                    style={{ backgroundImage: `url('/banners/group-diverse-people-having-business-meeting_53876-25060.webp')` }}
                 ></div>
                 <div className="absolute inset-0 bg-black opacity-50"></div>
 
@@ -99,18 +99,16 @@ function ContactUs() {
                 <div className="relative z-10 px-6 md:px-12 max-w-3xl">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        viewport={{ once: true }}
                         className="text-4xl md:text-6xl font-bold mb-4"
                     >
                         Get In Touch
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
-                        viewport={{ once: true }}
                         className="text-lg md:text-xl mb-6"
                     >
                         Have questions or want to collaborate? We're here to help you navigate the future of technology.
@@ -119,7 +117,6 @@ function ContactUs() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
-                        viewport={{ once: true }}
                         className="flex flex-col md:flex-row justify-center items-center gap-4"
                     >
 

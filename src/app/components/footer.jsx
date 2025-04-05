@@ -10,10 +10,10 @@ function Footer() {
                   <div>
                       <Link href="/" className="text-xl font-bold text-white flex items-center space-x-2">
                           <img src="logo.svg" width={84} alt="ThamZeal Logo" className="h-10 w-auto" />
-                          <span className="text-lg">ThamZeal <br></br> International</span>
+                          <span className="text-lg hidden">ThamZeal <br></br> International</span>
                       </Link>
-                      <p className="mt-3 text-white">
-                          Innovation-driven startup, creating transformative products across multiple industries.
+                      <p className="mt-3 text-white text-3xl">
+                          The Way Around
                       </p>
                   </div>
 

@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Button from "../components/button";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const brand_divisions = [
     {
@@ -29,44 +29,67 @@ const brand_divisions = [
     },
 ];
 
-const innovation_projects = [
+const innovationSections = [
     {
-        name: "Project EmberNest",
-        status: "Ongoing",
-        description: "Experience-centered event tech that goes beyond logistics into emotional precision."
+        label: "Ongoing Projects",
+        projects: [
+            {
+                codename: "Project EmberNest",
+                teaser: "Something crafted for those who celebrate. It brings together details that matter when everything must feel perfect. But it doesn’t shout. It curates.",
+                guessIt: "Built for moments that must feel eternal. It doesn’t host—it harmonizes. It’s less about the list, more about the meaning."
+            },
+            {
+                codename: "Project InnerOrbit",
+                teaser: "A closed-loop environment is taking shape. It doesn’t follow the outside world—it evolves its own. A community in sync, but never static.",
+                guessIt: "A private constellation for minds on the same frequency. It doesn’t connect people. It aligns them."
+            }
+        ]
     },
     {
-        name: "Project InnerOrbit",
-        status: "Ongoing",
-        description: "Private ecosystems for synced communities and self-evolving digital habitats."
+        label: "Coming Soon / Incubation",
+        projects: [
+            {
+                codename: "Project Qibra",
+                teaser: "Every direction leads somewhere, but some lead inward. A space is forming—not bound by walls—but by purpose. Time and meaning merge here.",
+                guessIt: "Direction meets design. Not a compass, not a schedule. Something in between. Where presence becomes experience."
+            },
+            {
+                codename: "Project NexusStream",
+                teaser: "Imagine if platforms collided. Not violently—but productively. A quiet merge of influence, utility, and elevation. What rises from this will be… very alive.",
+                guessIt: "If influence had infrastructure… If discovery wasn’t noisy… If platforms merged quietly, this is how it would feel."
+            }
+        ]
     },
     {
-        name: "Project Qibra",
-        status: "Incubation",
-        description: "Direction meets design through purposeful spaces. Not physical. Not virtual. Something hybrid."
-    },
-    {
-        name: "Project NexusStream",
-        status: "Incubation",
-        description: "Quietly merging platforms, influence, and discovery into a new form of relevance."
-    },
-    {
-        name: "Project W1",
-        status: "Experimental",
-        description: "An identity-less communication platform born from pure, unfiltered expression."
-    },
-    {
-        name: "Project DeltaPulse",
-        status: "Experimental",
-        description: "Tech interfaces redesigned to feel emotional, cross-boundary, and fluid."
+        label: "Future Concepts",
+        projects: [
+            {
+                codename: "Project W1",
+                teaser: "An atmosphere with no gravity. Thoughts fly freer here. Expression is reborn without attachment—pure, raw, unfiltered. Watch carefully. You might miss it.",
+                guessIt: "A zone without identity—yet full of voices. Raw signals in real time. If silence had shape, this would be it."
+            },
+            {
+                codename: "Project RE:Core",
+                teaser: "What if the hunt reversed? What if the search knew your need before you typed it? This isn’t a marketplace. It’s a mirrored exchange.",
+                guessIt: "The mirror blinks first. What you seek begins seeking you. The current reverses. The roles change."
+            },
+            {
+                codename: "Project DeltaPulse",
+                teaser: "A system being molded to feel like a touch, not a transaction. Designed to move across lines that were never meant to divide. Something fundamental—about to shift.",
+                guessIt: "Frictionless isn’t just UI. It’s crossing systems, boundaries, and brands without losing your fingerprint. Not one tap. One intention."
+            }
+        ]
     }
 ];
 
 function TransformStream() {
     const [expandedDivision, setExpandedDivision] = useState(null);
-    const [selectedProject, setSelectedProject] = useState(null);
+    const [openProject, setOpenProject] = useState(null);
 
-
+    const toggle = (sectionIndex, projectIndex) => {
+        const key = `${sectionIndex}-${projectIndex}`;
+        setOpenProject(openProject === key ? null : key);
+    };
     return (
         <>
             {/* Hero Section */}
@@ -148,75 +171,57 @@ function TransformStream() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {innovation_projects.map((project, index) => (
-                            <motion.div
-                                onClick={() => setSelectedProject(project)}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.2 + (index * 0.1) }}
-                                viewport={{ once: true }}
-                                key={index}
-                                className="bg-gray-900 p-6 rounded-2xl border border-gray-800 hover:border-[#4EAADA] transition-all duration-300"
-                            >
-                                <div className="flex justify-between items-center mb-3">
-                                    <h3 className="text-xl font-bold text-[#4EAADA]">{project.name}</h3>
-                                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${project.status === 'Ongoing' ? 'bg-green-900 text-green-300' :
-                                        project.status === 'Incubation' ? 'bg-yellow-900 text-yellow-300' :
-                                            'bg-purple-900 text-purple-300'
-                                        }`}>
-                                        {project.status}
-                                    </span>
-                                </div>
-                                <p className="text-gray-400">{project.description}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                    <AnimatePresence>
-                        {selectedProject && (
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
-                            >
-                                <motion.div
-                                    initial={{ scale: 0.9, y: 50 }}
-                                    animate={{ scale: 1, y: 0 }}
-                                    exit={{ scale: 0.9, y: 50 }}
-                                    className="bg-gray-900 rounded-2xl max-w-lg w-full p-6 relative border border-gray-700"
-                                >
-                                    <button
-                                        className="absolute top-3 right-3 text-white text-2xl"
-                                        onClick={() => setSelectedProject(null)}
+                        {innovationSections.flatMap((section, sectionIndex) =>
+                            section.projects.map((project, projectIndex) => {
+                                const isOpen = openProject === `${sectionIndex}-${projectIndex}`;
+                                const status = section.label;
+                                const statusColor =
+                                    status === "Ongoing Projects"
+                                        ? "bg-green-900 text-green-300"
+                                        : status.includes("Incubation")
+                                            ? "bg-yellow-900 text-yellow-300"
+                                            : "bg-purple-900 text-purple-300";
+
+                                return (
+                                    <motion.div
+                                        key={project.codename}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.1 * projectIndex }}
+                                        viewport={{ once: true }}
+                                        className="bg-gray-900 p-6 rounded-2xl border border-gray-800 hover:border-[#4EAADA] transition-all duration-300"
                                     >
-                                        &times;
-                                    </button>
+                                        <div className="flex justify-between items-start mb-2">
+  <div>
+    <h3 className="text-xl font-bold text-[#4EAADA]">{project.codename}</h3>
+    <span className={`mt-1 inline-block px-3 py-1 text-xs font-medium rounded-full ${statusColor}`}>
+      {status}
+    </span>
+  </div>
+  <button onClick={() => toggle(sectionIndex, projectIndex)} className="text-[#4EAADA]">
+    {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+  </button>
+</div>
 
-                                    <img
-                                        src={selectedProject.image || "/placeholder.jpg"}
-                                        alt={selectedProject.name}
-                                        className="w-full h-48 object-cover rounded-xl mb-4 border border-gray-800"
-                                    />
-
-                                    <div className="flex justify-between items-center mb-2">
-                                        <h2 className="text-2xl font-bold text-[#4EAADA]">
-                                            {selectedProject.name}
-                                        </h2>
-                                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${selectedProject.status === 'Ongoing'
-                                            ? 'bg-green-900 text-green-300'
-                                            : selectedProject.status === 'Incubation'
-                                                ? 'bg-yellow-900 text-yellow-300'
-                                                : 'bg-purple-900 text-purple-300'
-                                            }`}>
-                                            {selectedProject.status}
-                                        </span>
-                                    </div>
-
-                                    <p className="text-gray-400">{selectedProject.details || selectedProject.description}</p>
-                                </motion.div>
-                            </motion.div>
+                                        <AnimatePresence initial={false}>
+                                            {isOpen && (
+                                                <motion.div
+                                                    className="mt-2 border-t border-gray-800 pt-4 text-sm text-gray-300"
+                                                    initial={{ opacity: 0, height: 0 }}
+                                                    animate={{ opacity: 1, height: 'auto' }}
+                                                    exit={{ opacity: 0, height: 0 }}
+                                                    transition={{ duration: 0.3 }}
+                                                >
+                                                    <p className="text-gray-400 mb-2">{project.teaser}</p>
+                                                    <p className="text-gray-400">{project.guessIt}</p>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </motion.div>
+                                );
+                            })
                         )}
-                    </AnimatePresence>
+                    </div>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}

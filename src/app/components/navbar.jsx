@@ -15,7 +15,7 @@ export default function Navbar() {
     const pathname = usePathname();
 
     return (
-        <nav className="container flex justify-center p-4 max-w-full sticky top-5 z-50">
+        <nav className="container absolute flex justify-center p-4 max-w-full top-5 z-50">
             <div className="container drop-shadow-sm flex flex-row-reverse md:flex-row bg-white justify-end md:justify-between items-center max-w-[1400px] mx-auto py-4 rounded-2xl px-4 sm:px-6 md:px-8 lg:px-12">
                 <Link href="/" className="text-xl font-bold text-black flex items-center space-x-2">
                     <Image

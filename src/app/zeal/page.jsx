@@ -41,7 +41,7 @@ function SuperVision() {
     return (
         <>
             {/* Hero Section */}
-            <section className="relative h-screen -mt-28 flex items-center justify-center text-center text-white">
+            <section className="relative h-screen flex items-center justify-center text-center text-white">
                 {/* Background Image */}
                 <div className="absolute inset-0">
                     <Image
@@ -58,22 +58,15 @@ function SuperVision() {
 
                 {/* Content */}
                 <div className="relative z-10 px-6 md:px-12 max-w-3xl">
-                    <motion.h1
+                    <motion.h3
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-4xl md:text-6xl font-bold mb-4"
+                        className="text-2xl md:text-3xl mb-4"
                     >
-                        Super Vision
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="text-lg md:text-xl mb-6"
-                    >
-                        Thamzeal is not just a company. It's a coded movement—engineering the future across innovation, industry, and identity.
-                    </motion.p>
+                        Thamzeal is not just a company. <br /> It's a coded movement engineering the future across innovation, industry, and identity.
+                    </motion.h3>
+                    
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -254,13 +247,13 @@ function SuperVision() {
             {/* The Holding Philosophy */}
             <section className="w-full bg-gray-50 py-16">
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-                    <div className="flex flex-col md:flex-row items-start gap-12">
+                    <div className="flex flex-col md:flex-col items-start gap-12">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.2 }}
                             viewport={{ once: true }}
-                            className="w-full md:w-1/2"
+                            className="w-full"
                         >
                             <h2 className="text-4xl font-bold text-gray-900 mb-6">The Holding Philosophy</h2>
                             <p className="text-gray-700 mb-6">
@@ -293,9 +286,9 @@ function SuperVision() {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.3 }}
                             viewport={{ once: true }}
-                            className="w-full md:w-1/2"
+                            className="w-full"
                         >
-                            <div className="bg-black text-white p-8 rounded-2xl">
+                            <div className="bg-black text-white text-center p-8 rounded-2xl">
                                 <h3 className="text-2xl font-bold text-[#4EAADA] mb-6">Sustainability, Scale & Silence</h3>
                                 <p className="text-gray-300 mb-6">
                                     Thamzeal operates with radical sustainability, ethical frameworks, and silent velocity.

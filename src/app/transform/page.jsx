@@ -1,13 +1,14 @@
 'use client';
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import Button from "../components/button";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+
 
 const brand_divisions = [
     {
-        title: "Tech IT Solutions (Collaboration with Xyberai LLC)",
+        title: "Tech IT Solutions (Collaboration with Xyberai)",
         desc: "Pioneering digital products and applications for transformative solutions.",
     },
     {
@@ -63,11 +64,13 @@ const innovation_projects = [
 
 function TransformStream() {
     const [expandedDivision, setExpandedDivision] = useState(null);
+    const [selectedProject, setSelectedProject] = useState(null);
+
 
     return (
         <>
             {/* Hero Section */}
-            <section className="relative h-screen -mt-28 flex items-center justify-center text-center text-white">
+            <section className="relative h-screen flex items-center justify-center text-center text-white">
                 {/* Background Image */}
                 <div className="absolute inset-0">
                     <Image
@@ -113,134 +116,181 @@ function TransformStream() {
             </section>
 
             {/* Innovation Universe */}
-                        <section className="w-full bg-black text-white py-16">
-                            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-                                <div className="text-white text-left mb-10">
-                                    <motion.h1
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.2 }}
-                                        viewport={{ once: true }}
-                                        className="text-4xl md:text-5xl font-bold"
-                                    >
-                                        Innovation Universe
-                                    </motion.h1>
-                                    <motion.p
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.3 }}
-                                        viewport={{ once: true }}
-                                    >
-                                        Codename Projects (Layer 1 Disclosure)
-                                    </motion.p>
-                                    <motion.p
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.4 }}
-                                        viewport={{ once: true }}
-                                        className="text-gray-400 mt-2"
-                                    >
-                                        These projects represent only glimpses—each with hidden layers, active prototypes, and product-first ambitions.
-                                    </motion.p>
-                                </div>
-            
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    {innovation_projects.map((project, index) => (
-                                        <motion.div
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: 0.2 + (index * 0.1) }}
-                                            viewport={{ once: true }}
-                                            key={index}
-                                            className="bg-gray-900 p-6 rounded-2xl border border-gray-800 hover:border-[#4EAADA] transition-all duration-300"
-                                        >
-                                            <div className="flex justify-between items-center mb-3">
-                                                <h3 className="text-xl font-bold text-[#4EAADA]">{project.name}</h3>
-                                                <span className={`px-3 py-1 rounded-full text-xs font-medium ${project.status === 'Ongoing' ? 'bg-green-900 text-green-300' :
-                                                        project.status === 'Incubation' ? 'bg-yellow-900 text-yellow-300' :
-                                                            'bg-purple-900 text-purple-300'
-                                                    }`}>
-                                                    {project.status}
-                                                </span>
-                                            </div>
-                                            <p className="text-gray-400">{project.description}</p>
-                                        </motion.div>
-                                    ))}
-                                </div>
-                                <motion.p
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.5 }}
-                                    viewport={{ once: true }}
-                                    className="text-gray-500 mt-8 text-center italic"
-                                >
-                                    &gt; We don't reveal full details. Codenames are living ideas.
-                                </motion.p>
-                            </div>
-                        </section>
-            
-                        {/* R&D Section */}
-                        <section className="w-full bg-gradient-to-r from-[#111] to-[#222] py-16 text-white">
-                            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-                                <div className="flex flex-col md:flex-row items-center gap-12">
-                                    <motion.div
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: 0.2 }}
-                                        viewport={{ once: true }}
-                                        className="w-full md:w-1/2"
-                                    >
-                                        <h2 className="text-4xl font-bold mb-6">R&D – Future Before Feedback</h2>
-                                        <p className="text-gray-300 mb-6">
-                                            Our R&D isn't an afterthought—it's the engine room.
-                                        </p>
-                                        <p className="text-gray-300 mb-4">We focus on:</p>
-                                        <ul className="space-y-4 mb-8">
-                                            <li className="flex items-start">
-                                                <span className="text-[#4EAADA] mr-3 text-xl">•</span>
-                                                <span className="text-lg">Predictive Infrastructure</span>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <span className="text-[#4EAADA] mr-3 text-xl">•</span>
-                                                <span className="text-lg">Autonomous Tools</span>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <span className="text-[#4EAADA] mr-3 text-xl">•</span>
-                                                <span className="text-lg">Deep Learning + Minimal Interfaces</span>
-                                            </li>
-                                            <li className="flex items-start">
-                                                <span className="text-[#4EAADA] mr-3 text-xl">•</span>
-                                                <span className="text-lg">Ethical AI and Mind-Tech Intersections</span>
-                                            </li>
-                                        </ul>
-                                        <p className="text-gray-300">
-                                            These innovations fuel our internal ventures or power white-label products for the world.
-                                        </p>
-                                    </motion.div>
-                                    <motion.div
-                                        initial={{ opacity: 0, x: 20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: 0.3 }}
-                                        viewport={{ once: true }}
-                                        className="w-full md:w-1/2 flex justify-center"
-                                    >
-                                        <div className="relative w-full h-80 md:h-96 rounded-2xl overflow-hidden">
-                                            <img
-                                                src="/images/res-and-dev.webp"
-                                                alt="R&D Division"
-                                                className="absolute inset-0 w-full h-full object-cover"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-70"></div>
-                                            <div className="absolute bottom-0 left-0 right-0 p-6">
-                                                <Button type="primary" title="Explore R&D" />
-                                            </div>
-                                        </div>
-                                    </motion.div>
-                                </div>
-                            </div>
-                        </section>
+            <section className="w-full bg-black text-white py-16">
+                <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+                    <div className="text-white text-left mb-10">
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }}
+                            className="text-4xl md:text-5xl font-bold"
+                        >
+                            Innovation Universe
+                        </motion.h1>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3 }}
+                            viewport={{ once: true }}
+                        >
+                            Codename Projects (Layer 1 Disclosure)
+                        </motion.p>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 }}
+                            viewport={{ once: true }}
+                            className="text-gray-400 mt-2"
+                        >
+                            These projects represent only glimpses—each with hidden layers, active prototypes, and product-first ambitions.
+                        </motion.p>
+                    </div>
 
-            
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {innovation_projects.map((project, index) => (
+                            <motion.div
+                                onClick={() => setSelectedProject(project)}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 + (index * 0.1) }}
+                                viewport={{ once: true }}
+                                key={index}
+                                className="bg-gray-900 p-6 rounded-2xl border border-gray-800 hover:border-[#4EAADA] transition-all duration-300"
+                            >
+                                <div className="flex justify-between items-center mb-3">
+                                    <h3 className="text-xl font-bold text-[#4EAADA]">{project.name}</h3>
+                                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${project.status === 'Ongoing' ? 'bg-green-900 text-green-300' :
+                                        project.status === 'Incubation' ? 'bg-yellow-900 text-yellow-300' :
+                                            'bg-purple-900 text-purple-300'
+                                        }`}>
+                                        {project.status}
+                                    </span>
+                                </div>
+                                <p className="text-gray-400">{project.description}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                    <AnimatePresence>
+                        {selectedProject && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70"
+                            >
+                                <motion.div
+                                    initial={{ scale: 0.9, y: 50 }}
+                                    animate={{ scale: 1, y: 0 }}
+                                    exit={{ scale: 0.9, y: 50 }}
+                                    className="bg-gray-900 rounded-2xl max-w-lg w-full p-6 relative border border-gray-700"
+                                >
+                                    <button
+                                        className="absolute top-3 right-3 text-white text-2xl"
+                                        onClick={() => setSelectedProject(null)}
+                                    >
+                                        &times;
+                                    </button>
+
+                                    <img
+                                        src={selectedProject.image || "/placeholder.jpg"}
+                                        alt={selectedProject.name}
+                                        className="w-full h-48 object-cover rounded-xl mb-4 border border-gray-800"
+                                    />
+
+                                    <div className="flex justify-between items-center mb-2">
+                                        <h2 className="text-2xl font-bold text-[#4EAADA]">
+                                            {selectedProject.name}
+                                        </h2>
+                                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${selectedProject.status === 'Ongoing'
+                                            ? 'bg-green-900 text-green-300'
+                                            : selectedProject.status === 'Incubation'
+                                                ? 'bg-yellow-900 text-yellow-300'
+                                                : 'bg-purple-900 text-purple-300'
+                                            }`}>
+                                            {selectedProject.status}
+                                        </span>
+                                    </div>
+
+                                    <p className="text-gray-400">{selectedProject.details || selectedProject.description}</p>
+                                </motion.div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5 }}
+                        viewport={{ once: true }}
+                        className="text-gray-500 mt-8 text-center italic"
+                    >
+                        &gt; We don't reveal full details. Codenames are living ideas.
+                    </motion.p>
+                </div>
+            </section>
+
+            {/* R&D Section */}
+            <section className="w-full bg-gradient-to-r from-[#111] to-[#222] py-16 text-white">
+                <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+                    <div className="flex flex-col md:flex-row items-center gap-12">
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }}
+                            className="w-full md:w-1/2"
+                        >
+                            <h2 className="text-4xl font-bold mb-6">R&D – Future Before Feedback</h2>
+                            <p className="text-gray-300 mb-6">
+                                Our R&D isn't an afterthought—it's the engine room.
+                            </p>
+                            <p className="text-gray-300 mb-4">We focus on:</p>
+                            <ul className="space-y-4 mb-8">
+                                <li className="flex items-start">
+                                    <span className="text-[#4EAADA] mr-3 text-xl">•</span>
+                                    <span className="text-lg">Predictive Infrastructure</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <span className="text-[#4EAADA] mr-3 text-xl">•</span>
+                                    <span className="text-lg">Autonomous Tools</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <span className="text-[#4EAADA] mr-3 text-xl">•</span>
+                                    <span className="text-lg">Deep Learning + Minimal Interfaces</span>
+                                </li>
+                                <li className="flex items-start">
+                                    <span className="text-[#4EAADA] mr-3 text-xl">•</span>
+                                    <span className="text-lg">Ethical AI and Mind-Tech Intersections</span>
+                                </li>
+                            </ul>
+                            <p className="text-gray-300">
+                                These innovations fuel our internal ventures or power white-label products for the world.
+                            </p>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.3 }}
+                            viewport={{ once: true }}
+                            className="w-full md:w-1/2 flex justify-center"
+                        >
+                            <div className="relative w-full h-80 md:h-96 rounded-2xl overflow-hidden">
+                                <img
+                                    src="/images/res-and-dev.webp"
+                                    alt="R&D Division"
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent opacity-70"></div>
+                                <div className="absolute bottom-0 left-0 right-0 p-6">
+                                    <Button type="primary" title="Explore R&D" />
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+
 
             {/* Success Metrics */}
             <section className="w-full bg-gray-50 py-16">

@@ -104,7 +104,7 @@ function page() {
 
     return (
         <>
-            <section className="relative h-screen -mt-28 flex items-center justify-center text-center bg-black text-white overflow-hidden">
+            <section className="relative h-screen flex items-center justify-center text-center bg-black text-white overflow-hidden">
                 {/* Background Carousel using next/image */}
                 <motion.div
                     key={images[prevImage]}

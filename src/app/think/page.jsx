@@ -68,7 +68,7 @@ function About() {
             {/* Hero Section */}
 
             {/* Company Overview */}
-            <section className="text-white bg-black py-16 -mt-28 pt-38">
+            <section className="text-white bg-black py-16 pt-38">
                 <div className="container relative flex flex-col-reverse md:flex-row items-center justify-center w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
                     {/* Left Text Section */}
                     <div className="w-full md:w-1/2 text-left">

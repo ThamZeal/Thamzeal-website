@@ -7,64 +7,93 @@ import Image from "next/image";
 
 
 
-const core_verticals = [
+const services = [ 
     {
-        title: "Retail & Commerce",
-        desc: "We redefine consumer experiences via eCommerce, physical retail, and a stealth import-export engine designed for operational velocity and quality."
+        title: "Retail & Trade Services",
+        tagline: "Elevating Experiences. Simplifying Commerce.",
+        offerings: [
+            "Omnichannel Retail Strategy & Execution",
+            "Global Sourcing & Import-Export Management",
+            "Smart Logistics & Supply Chain Intelligence",
+            "Retail Analytics & Consumer Journey Design"
+        ],
+        description: "From street-level stores to seamless e-commerce integrations, we redefine what shopping feels like—with real-time infrastructure and ethical sourcing at the core."
     },
     {
-        title: "Food Chain Ventures",
-        desc: "Launching food brands, hybrid kitchens, and delivery innovations—rooted in taste, sustainability, and immersive dining."
+        title: "Food Chain & Culinary Services",
+        tagline: "Building What the World Craves.",
+        offerings: [
+            "Brand Development for Food Ventures",
+            "Smart Kitchen & Cloud Kitchen Implementation",
+            "Tech-Enabled Order Management Systems",
+            "Sustainable Sourcing & Culinary Innovation"
+        ],
+        description: "We help build next-generation food ventures—where taste meets tech, and every meal tells a story."
     },
     {
-        title: "Service Engines",
-        desc: "Future-focused platforms offering B2B solutions, operational systems, and SaaS tools engineered for global businesses and startups."
+        title: "Technology & Innovation Services",
+        tagline: "Solving Real Problems with Scalable Technology.",
+        offerings: [
+            "Custom Product Development (AI, Cloud, Automation)",
+            "Innovation Labs for Corporates & Creators",
+            "MVP Design, Testing, and Launch Programs",
+            "Human-Centered Tech Prototyping"
+        ],
+        description: "Our tech services operate like a lab—where breakthrough meets business and prototypes meet the real world."
     },
     {
-        title: "Technology Labs",
-        desc: "Our tech division operates like a Google-modeled studio, creating products across AI, cloud systems, automation, and ambient experiences."
+        title: "Enterprise Solutions & Platforms",
+        tagline: "Tools for the Next Billion Enterprises.",
+        offerings: [
+            "Software-as-a-Service (SaaS) Platforms",
+            "Business Process Automation (BPA)",
+            "Digital Consulting & Transformation",
+            "Internal Tools for Ops, HR, and Growth"
+        ],
+        description: "We equip modern businesses with the tools to grow fast, scale smart, and operate globally."
     },
     {
-        title: "Careers & Placement Division",
-        desc: "Bridging learning to leadership. We fuel industry with new talent through structured internships, live projects, placement pipelines, and startup incubation."
+        title: "Careers Lab & Placement Services",
+        tagline: "Talent is the Real Engine. We Build It.",
+        offerings: [
+            "Internships with Live Projects",
+            "Leadership & Startup Incubation Programs",
+            "Placement Partnerships for Talent Deployment",
+            "Creator & Founder Acceleration Tracks"
+        ],
+        description: "Through InGen, our placement arm, we bridge sharp minds with global ventures—internal and external."
     },
     {
-        title: "R&D Division",
-        desc: "A secretive powerhouse exploring future technologies and idea-level innovation across AI, robotics, data, behavior mapping, and emotional tech."
+        title: "Innovation as a Service (IaaS)",
+        tagline: "Plug into Our Brain. Access Our Ecosystem.",
+        offerings: [
+            "Codename Project Collaboration",
+            "Access to ARIELAB R&D Resources",
+            "Idea-to-Execution Consulting",
+            "Innovation Audits for Corporates"
+        ],
+        description: "When enterprises need fresh thinking, we become their extended innovation arm—quietly building what’s next."
+    },
+    {
+        title: "Global Advisory & Venture Services",
+        tagline: "We Don’t Just Consult. We Co-Create.",
+        offerings: [
+            "Startup Advisory & Angel Network",
+            "Market Entry Strategy & Localization",
+            "Venture Studio Partnerships",
+            "Brand Architecture & Story Crafting"
+        ],
+        description: "We back ideas, guide operators, and shape ventures—from sketchpad to scale."
     }
-];
-
-const brand_divisions = [
-    {
-        title: "Tech IT Solutions (Collaboration with Xyberai LLC)",
-        desc: "Pioneering digital products and applications for transformative solutions.",
-    },
-    {
-        title: "E-commerce & Retail",
-        desc: "Creating seamless online shopping experiences for customers worldwide.",
-    },
-    {
-        title: "Import & Export",
-        desc: "Providing essential utility solutions for everyday convenience.",
-    },
-    {
-        title: "F&B Chain",
-        desc: "Open to exciting partnerships and collaborations in various industries.",
-    },
-    {
-        title: "AI-Driven Innovations",
-        desc: "Pioneering digital products and applications for transformative solutions.",
-    },
-];
+]
 
 function Business() {
-    const [expandedDivision, setExpandedDivision] = useState(null);
     const [selectedVertical, setSelectedVertical] = useState(null);
 
     return (
         <>
             {/* Hero Section */}
-            <section className="relative h-screen -mt-28 flex items-center justify-center text-center text-white">
+            <section className="relative h-screen  flex items-center justify-center text-center text-white">
                 {/* Background Image */}
                 <div className="absolute inset-0">
                     <Image
@@ -174,7 +203,7 @@ function Business() {
                             viewport={{ once: true }}
                             className="text-4xl md:text-5xl font-bold"
                         >
-                            Core Thamzeal Verticals
+                            Core Solutions
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -188,7 +217,7 @@ function Business() {
 
                     {/* Verticals Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
-                        {core_verticals.map((item, index) => (
+                        {services.map((item, index) => (
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -202,7 +231,15 @@ function Business() {
                                 <h2 className="text-2xl font-bold text-gray-800 mb-3">
                                     {item.title}
                                 </h2>
-                                <p className="text-gray-700">{item.desc}</p>
+                                <ul>
+                                    {item.offerings.map((offering, index) => (
+                                        <li key={index} className="flex items-start mb-2">
+                                            <span className="text-[#4EAADA] mr-2">✓</span>
+                                            <span className="text-gray-700">{offering}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <p className="text-gray-700">{item.description}</p>
                             </motion.div>
                         ))}
                     </div>

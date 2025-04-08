@@ -4,6 +4,7 @@ import { React, useState, useEffect } from "react";
 import Button from "../components/button";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const images = [
     "/banners/group-diverse-people-having-business-meeting_53876-25060.webp",
@@ -56,7 +57,7 @@ const reviews = [
 
 const brand_divisions = [
     {
-        title: "Tech IT Solutions (Collaboration with Xyberai LLC)",
+        title: "Tech IT Solutions (Collaboration with Xyberai)",
         desc: "Pioneering digital products and applications for transformative solutions.",
     },
     {
@@ -78,6 +79,24 @@ const brand_divisions = [
 ];
 
 function page() {
+    const router = useRouter();
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        const start = () => setLoading(true);
+        const end = () => setLoading(false);
+
+        router.events?.on("routeChangeStart", start);
+        router.events?.on("routeChangeComplete", end);
+        router.events?.on("routeChangeError", end);
+
+        return () => {
+            router.events?.off("routeChangeStart", start);
+            router.events?.off("routeChangeComplete", end);
+            router.events?.off("routeChangeError", end);
+        };
+    }, [router]);
+    
     const [index, setIndex] = useState(0);
 
     useEffect(() => {

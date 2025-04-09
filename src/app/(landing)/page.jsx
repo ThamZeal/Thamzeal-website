@@ -187,8 +187,8 @@ function page() {
                         viewport={{ once: true }}
                         className="flex flex-col md:flex-row justify-center items-center gap-4"
                     >
-                        <Button type="primary" title="Know more" />
-                        <Button type="secondary" title="Let's talk about your business ?" />
+                        <Button type="primary" href='/thrive' title="Know more" />
+                        <Button type="secondary" href='/contact' title="Let's talk about your business ?" />
                     </motion.div>
                 </div>
             </section>
@@ -218,7 +218,7 @@ function page() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
                             viewport={{ once: true }} className="mt-8">
-                            <Button type="primary" title="Know more" />
+                            <Button type="primary" href='/think' title="Know more" />
                         </motion.div>
                     </div>
 
@@ -273,7 +273,7 @@ function page() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
                             viewport={{ once: true }}
-                            href=""
+                            href="/thrive"
                             className="bg-[#065C9B] hover:scale-105 text-2xl p-8 rounded-2xl shadow-lg text-white text-center flex justify-center items-center hover:bg-[#1E85C2] transition-all duration-300"
                         >
                             {" "}
@@ -292,7 +292,7 @@ function page() {
                     <h1 className="text-white text-2xl">
                         Looking to grow your business with our expert support?
                     </h1>
-                    <Button type="secondary" title="Let's talk business !!"></Button>
+                    <Button type="secondary" href='/contact' title="Let's talk business !!"></Button>
                 </motion.div>
             </section>
 

@@ -132,8 +132,8 @@ function Business() {
                         transition={{ delay: 0.4 }}
                         className="flex flex-col md:flex-row justify-center items-center gap-4"
                     >
-                        <Button type="primary" title="Explore Divisions" />
-                        <Button type="Secondary" title="Partner With Us" />
+                        <Button type="primary" href='#business-verticals' title="Explore Divisions" />
+                        <Button type="Secondary" href='#collab' title="Partner With Us" />
                     </motion.div>
                 </div>
             </section>
@@ -173,7 +173,7 @@ function Business() {
                             viewport={{ once: true }}
                             className="mt-8"
                         >
-                            <Button type="primary" title="Our Approach" />
+                            {/* <Button type="primary" title="Our Approach" /> */}
                         </motion.div>
                     </div>
 
@@ -192,7 +192,8 @@ function Business() {
                 </div>
             </section>
 
-            <section className="w-full bg-white py-16">
+            <section className="w-full bg-white py-16" id='business-verticals'>
+                {/* Background Image */}
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
                     {/* Section Heading */}
                     <div className="text-gray-900 text-left mb-10">
@@ -247,7 +248,7 @@ function Business() {
             </section>
 
             {/* Collaboration Opportunities */}
-            <section className="w-full bg-black text-white py-16">
+            <section className="w-full bg-black text-white py-16" id='collab'>
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
                     <div className="text-white text-left mb-10">
                         <motion.h1
@@ -296,9 +297,9 @@ function Business() {
                                     <span>Integration with our established distribution networks</span>
                                 </li>
                             </ul>
-                            <div className="mt-6">
+                            {/* <div className="mt-6">
                                 <Button type="primary" title="Business Partnerships" />
-                            </div>
+                            </div> */}
                         </motion.div>
 
                         <motion.div
@@ -327,9 +328,9 @@ function Business() {
                                     <span>Access to global markets through our network</span>
                                 </li>
                             </ul>
-                            <div className="mt-6">
+                            {/* <div className="mt-6">
                                 <Button type="primary" title="Innovation Programs" />
-                            </div>
+                            </div> */}
                         </motion.div>
                     </div>
                 </div>
@@ -352,7 +353,7 @@ function Business() {
                             Contact our business development team to discuss opportunities.
                         </p>
                     </div>
-                    <Button type="secondary" title="Schedule a Meeting" />
+                    <Button type="secondary" href='/contact' title="Schedule a Meeting" />
                 </motion.div>
             </section>
         </>

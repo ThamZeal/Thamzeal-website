@@ -6,29 +6,6 @@ import Button from "../components/button";
 import Image from "next/image";
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
-const brand_divisions = [
-    {
-        title: "Tech IT Solutions (Collaboration with Xyberai)",
-        desc: "Pioneering digital products and applications for transformative solutions.",
-    },
-    {
-        title: "E-commerce & Retail",
-        desc: "Creating seamless online shopping experiences for customers worldwide.",
-    },
-    {
-        title: "Import & Export",
-        desc: "Providing essential utility solutions for everyday convenience.",
-    },
-    {
-        title: "F&B Chain",
-        desc: "Open to exciting partnerships and collaborations in various industries.",
-    },
-    {
-        title: "AI-Driven Innovations",
-        desc: "Pioneering digital products and applications for transformative solutions.",
-    },
-];
-
 const innovationSections = [
     {
         label: "Ongoing Projects",
@@ -132,14 +109,14 @@ function TransformStream() {
                         transition={{ delay: 0.4 }}
                         className="flex flex-col md:flex-row justify-center items-center gap-4"
                     >
-                        <Button type="primary" title="Explore Projects" />
-                        <Button type="Secondary" title="Partner With Us" />
+                        <Button type="primary" href='#project' title="Explore Projects" />
+                        <Button type="Secondary" href='#collab' title="Partner With Us" />
                     </motion.div>
                 </div>
             </section>
 
             {/* Innovation Universe */}
-            <section className="w-full bg-black text-white py-16">
+            <section className="w-full bg-black text-white py-16" id='project'>
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
                     <div className="text-white text-left mb-10">
                         <motion.h1
@@ -192,16 +169,16 @@ function TransformStream() {
                                         className="bg-gray-900 p-6 rounded-2xl border border-gray-800 hover:border-[#4EAADA] transition-all duration-300"
                                     >
                                         <div className="flex justify-between items-start mb-2">
-  <div>
-    <h3 className="text-xl font-bold text-[#4EAADA]">{project.codename}</h3>
-    <span className={`mt-1 inline-block px-3 py-1 text-xs font-medium rounded-full ${statusColor}`}>
-      {status}
-    </span>
-  </div>
-  <button onClick={() => toggle(sectionIndex, projectIndex)} className="text-[#4EAADA]">
-    {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-  </button>
-</div>
+                                            <div>
+                                                <h3 className="text-xl font-bold text-[#4EAADA]">{project.codename}</h3>
+                                                <span className={`mt-1 inline-block px-3 py-1 text-xs font-medium rounded-full ${statusColor}`}>
+                                                    {status}
+                                                </span>
+                                            </div>
+                                            <button onClick={() => toggle(sectionIndex, projectIndex)} className="text-[#4EAADA]">
+                                                {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                                            </button>
+                                        </div>
 
                                         <AnimatePresence initial={false}>
                                             {isOpen && (
@@ -350,7 +327,7 @@ function TransformStream() {
             </section>
 
             {/* Collaboration Opportunities */}
-            <section className="w-full bg-black text-white py-16">
+            <section className="w-full bg-black text-white py-16" id='collab'>
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
                     <div className="text-white text-left mb-10">
                         <motion.h1
@@ -399,9 +376,9 @@ function TransformStream() {
                                     <span>Integration with our established distribution networks</span>
                                 </li>
                             </ul>
-                            <div className="mt-6">
+                            {/* <div className="mt-6">
                                 <Button type="primary" title="Business Partnerships" />
-                            </div>
+                            </div> */}
                         </motion.div>
 
                         <motion.div
@@ -430,9 +407,9 @@ function TransformStream() {
                                     <span>Access to global markets through our network</span>
                                 </li>
                             </ul>
-                            <div className="mt-6">
+                            {/* <div className="mt-6">
                                 <Button type="primary" title="Innovation Programs" />
-                            </div>
+                            </div> */}
                         </motion.div>
                     </div>
                 </div>
@@ -455,7 +432,7 @@ function TransformStream() {
                             Contact our business development team to discuss opportunities.
                         </p>
                     </div>
-                    <Button type="secondary" title="Schedule a Meeting" />
+                    <Button type="secondary" href='/contact' title="Schedule a Meeting" />
                 </motion.div>
             </section>
         </>

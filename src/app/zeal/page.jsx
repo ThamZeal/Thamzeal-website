@@ -73,8 +73,8 @@ function SuperVision() {
                         transition={{ delay: 0.4 }}
                         className="flex flex-col md:flex-row justify-center items-center gap-4"
                     >
-                        <Button type="primary" title="Our Vision" />
-                        <Button type="Secondary" title="Our Ventures" />
+                        <Button type="primary" href='/think' title="Our Vision" />
+                        <Button type="Secondary" href='/thrive' title="Our Ventures" />
                     </motion.div>
                 </div>
             </section>
@@ -118,7 +118,7 @@ function SuperVision() {
                             viewport={{ once: true }}
                             className="mt-8"
                         >
-                            <Button type="primary" title="Our Philosophy" />
+                            <Button type="primary" href='#philosophy' title="Our Philosophy" />
                         </motion.div>
                     </div>
 
@@ -173,7 +173,7 @@ function SuperVision() {
                                     <span>Ventures are led by the ones who built them from zero</span>
                                 </li>
                             </ul>
-                            <Button type="primary" title="Join Careers Lab" />
+                            <Button type="primary" href='/contact' title="Join Careers Lab" />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, x: 20 }}
@@ -245,7 +245,7 @@ function SuperVision() {
             </section>
 
             {/* The Holding Philosophy */}
-            <section className="w-full bg-gray-50 py-16">
+            <section className="w-full bg-gray-50 py-16" id='philosophy'>
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
                     <div className="flex flex-col md:flex-col items-start gap-12">
                         <motion.div
@@ -371,7 +371,7 @@ function SuperVision() {
                             Join our ecosystem as a partner, talent, or collaborator.
                         </p>
                     </div>
-                    <Button type="secondary" title="Connect With Us" />
+                    <Button type="secondary" href='/contact' title="Connect With Us" />
                 </motion.div>
             </section>
         </>

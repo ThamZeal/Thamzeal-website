@@ -111,8 +111,8 @@ function About() {
                             viewport={{ once: true }}
                             className="mt-8 space-x-4"
                         >
-                            <Button type="primary" title="Our Businesses" />
-                            <Button type="Secondary" title="Contact Us" />
+                            <Button type="primary" href='/thrive' title="Our Businesses" />
+                            <Button type="Secondary" href='/contact' title="Contact Us" />
                         </motion.div>
                     </div>
 
@@ -298,8 +298,8 @@ function About() {
                             viewport={{ once: true }}
                             className="mt-8 space-x-4"
                         >
-                            <Button type="primary" title="Our Businesses" />
-                            <Button type="Secondary" title="Contact Us" />
+                            <Button type="primary" href='/thrive' title="Our Businesses" />
+                            <Button type="Secondary" href='/contact' title="Contact Us" />
                         </motion.div>
                     </div>
                 </div>
@@ -359,7 +359,7 @@ function About() {
                     <h2 className="text-white text-2xl font-semibold text-center md:text-left">
                         Want to collaborate with us? Let's build the future together!
                     </h2>
-                    <Button type="secondary" title="Let's talk business !!" />
+                    <Button type="secondary" href='/contact' title="Let's talk business !!" />
                 </motion.div>
             </section>
         </>

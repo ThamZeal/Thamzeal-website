@@ -25,8 +25,8 @@ export default function Navbar() {
                         alt="ThamZeal Logo"
                         className="h-5 md:h-10 w-auto"
                     />
-                    <span className="text-lg hidden md:block">
-                        ThamZeal <br /> International
+                    <span className="text-lg">
+                        ThamZeal <br className='hidden md:block' /> International
                     </span>
                 </Link>
 
@@ -76,10 +76,20 @@ export default function Navbar() {
                         exit={{ x: "-100%" }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="md:hidden text-black fixed top-0 left-0 w-3/4 h-full bg-white z-50 p-6 flex flex-col items-start space-y-6 shadow-lg"
-                    >
-                        <button className="self-end mb-4" onClick={() => setIsOpen(false)}>
-                            <X size={28} />
-                        </button>
+                    ><div className='flex justify-between w-full'>
+                            <Image
+                                src="/logo.svg"
+                                width={100}
+                                height={0}
+                                alt="ThamZeal Logo"
+                                className=""
+                            />
+                            <button className="self-end mb-4" onClick={() => setIsOpen(false)}>
+                                <X size={28} />
+                            </button>
+                    </div>
+                        
+
                         <ul className="flex flex-col space-y-4 w-full">
                             {nav_links.map((item) => {
                                 const href = item === 'home' ? '/' : `/${item}`;

@@ -306,10 +306,10 @@ function SuperVision() {
                 </div>
             </section>
             {/* Meet Our Team */}
-            <section className="w-full bg-white py-16">
-                <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+            {/* <section className="w-full bg-white py-16">
+                <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12"> */}
                     {/* Section Heading */}
-                    <div className="text-gray-900 text-left mb-10">
+                    {/* <div className="text-gray-900 text-left mb-10">
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -327,9 +327,9 @@ function SuperVision() {
                         >
                             We are engineers, designers, researchers, operators, and creators—but more than that, we are builders of better.  From our founder’s first challenge to our global ecosystem today, every team member carries one shared principle: the future is something we make, not something we wait for.
                         </motion.p>
-                    </div>
+                    </div> */}
                     {/* Team Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                    {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                         {teamMembers.map((member, idx) => (
                             <motion.div
                                 key={idx}
@@ -350,9 +350,9 @@ function SuperVision() {
                                 <p className="text-gray-600">{member.role}</p>
                             </motion.div>
                         ))}
-                    </div>
-                </div>
-            </section>
+                    </div> */}
+                {/* </div>
+            </section> */}
 
             {/* Call to Action */}
             <section className="w-full bg-gradient-to-r from-[#4047A7] to-[#4EAADA] py-16">

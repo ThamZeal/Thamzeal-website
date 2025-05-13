@@ -300,18 +300,18 @@ function page() {
 
             {/* testimonials */}
 
-            <section className="w-full bg-black py-16">
-                <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col md:flex-row justify-center items-start md:items-center gap-8">
+            {/* <section className="w-full bg-black py-16"> */}
+                {/* <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex flex-col md:flex-row justify-center items-start md:items-center gap-8"> */}
                     {/* Heading */}
-                    <motion.h1 initial={{ opacity: 0, y: 20 }}
+                    {/* <motion.h1 initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                         viewport={{ once: true }} className="text-white text-4xl md:text-5xl font-bold">
                         See what our customers have to say.
-                    </motion.h1>
+                    </motion.h1> */}
 
                     {/* Review Card */}
-                    <div className="relative w-full max-w-lg">
+                    {/* <div className="relative w-full max-w-lg">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={reviews[index].id}
@@ -336,7 +336,7 @@ function page() {
                         </AnimatePresence>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* partnerships */}
 

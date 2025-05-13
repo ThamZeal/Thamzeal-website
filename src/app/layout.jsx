@@ -18,14 +18,14 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: "ThamZeal International | Business Growth & Strategy Consulting",
+  title: "ThamZeal International",
   description: "ThamZeal International offers expert business consulting services to drive growth, transformation, and success. Partner with us for innovative strategies.",
   keywords: "ThamZeal, Business Consulting, Growth Strategy, Business Transformation, International Consulting, Business Success, Innovation, Strategy Consulting",
   authors: [{ name: "ThamZeal" }],
   creator: "ThamZeal",
   publisher: "ThamZeal",
   openGraph: {
-    title: "ThamZeal International | Business Growth & Strategy Consulting",
+    title: "ThamZeal International",
     description: "ThamZeal International offers expert business consulting services to drive growth, transformation, and success. Partner with us for innovative strategies.",
     url: "https://www.thamzeal.com",
     images: [

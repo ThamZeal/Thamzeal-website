@@ -359,16 +359,29 @@ function page() {
                     </div>
 
                     {/* Partner Logo */}
-                    <motion.div initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        viewport={{ once: true }} className="mt-12 flex justify-center">
-                        <img
-                            src="/images/xyberai.jpeg"
-                            alt="XyberAI Logo"
-                            className="h-50 w-auto border border-black rounded-2xl"
-                        />
-                    </motion.div>
+                    <div className="flex flex-col md:flex-row justify-center space-x-4">
+                        <motion.div initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }} className="mt-12 flex justify-center">
+                            <img
+                                src="/images/X_AI.png"
+                                alt="XyberAI Logo"
+                                className="h-50 w-auto border border-black rounded-2xl"
+                            />
+                        </motion.div>
+                        <motion.div initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }} className="mt-12 flex justify-center">
+                            <img
+                                src="/images/Noculant_Logo.png"
+                                alt="Noculant Logo"
+                                className="h-50 w-auto border border-black rounded-2xl"
+                            />
+                        </motion.div>
+                    </div>
+                    
                 </div>
             </section>
         </>

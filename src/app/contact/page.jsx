@@ -322,7 +322,7 @@ function ContactUs() {
             </section>
 
             {/* Map Section */}
-            <section className="w-full bg-gray-50 py-16">
+            {/* <section className="w-full bg-gray-50 py-16">
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -341,14 +341,14 @@ function ContactUs() {
                         transition={{ delay: 0.3 }}
                         viewport={{ once: true }}
                         className="bg-white border-2 border-black hover:border-[#065C9B] p-4 rounded-2xl shadow-lg overflow-hidden"
-                    >
+                    > */}
                         {/* This would be replaced with an actual map implementation */}
-                        <div className="h-96 bg-gray-300 rounded-lg flex items-center justify-center">
+                        {/* <div className="h-96 bg-gray-300 rounded-lg flex items-center justify-center">
                             <p className="text-gray-600 text-lg">Map placeholder - Google Maps would be integrated here</p>
                         </div>
                     </motion.div>
                 </div>
-            </section>
+            </section> */}
 
             {/* FAQ Section */}
             <section id="faqs" className="w-full bg-white py-16">

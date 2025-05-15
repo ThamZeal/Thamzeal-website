@@ -297,9 +297,9 @@ function TransformStream() {
                         </motion.p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         <MetricCard
-                            number="12+"
+                            number="3+"
                             title="Strategic Partnerships"
                             description="Global collaborations driving innovation"
                             delay={0.2}
@@ -316,12 +316,12 @@ function TransformStream() {
                             description="Strong relationships built on trust and results"
                             delay={0.4}
                         />
-                        <MetricCard
+                        {/* <MetricCard
                             number="20+"
                             title="Countries Served"
                             description="Global reach with local understanding"
                             delay={0.5}
-                        />
+                        /> */}
                     </div>
                 </div>
             </section>

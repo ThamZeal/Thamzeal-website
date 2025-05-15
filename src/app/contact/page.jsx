@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Button from "../components/button";
 import { motion } from "framer-motion";
+import { Instagram, Linkedin } from 'lucide-react';
 
 // Contact information
 const contactInfo = [
@@ -13,12 +14,12 @@ const contactInfo = [
     },
     {
         title: "Phone",
-        details: "+91 9876543210",
+        details: "+91 9567 999 717",
         icon: "📞"
     },
     {
         title: "Address",
-        details: "ThamZeal Towers, Tech Park, Bangalore, India - 560001",
+        details: "Thrissur, Kerala 680655",
         icon: "📍"
     }
 ];
@@ -66,8 +67,30 @@ function ContactUs() {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify({
+                access_key: "4877ecd8-f674-497a-b528-27c9f702b226",
+                name: e.target.name.value,
+                email: e.target.email.value,
+                message: e.target.message.value,
+                subject: e.target.subject.value,
+                company: e.target.company.value,
+                from_name: "Website Contact Form",
+            }),
+        });
+        const result = await response.json();
+        console.log(result);
+        
+        if (result.success) {
+            console.log(result);
+        }
         // Simulate form submission
         setFormStatus("submitting");
 
@@ -173,17 +196,17 @@ function ContactUs() {
                             >
                                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Follow Us</h3>
                                 <div className="flex space-x-4">
-                                    <a href="#" className="text-[#065C9B] hover:text-[#4EAADA] transition-colors text-2xl">
+                                    <a href="https://www.linkedin.com/company/thamzeal-international-llp/" className="text-[#065C9B] hover:text-[#4EAADA] transition-colors text-2xl">
                                         <span className="sr-only">LinkedIn</span>
-                                        <span>🔗</span>
+                                        <span><Linkedin/></span>
                                     </a>
-                                    <a href="#" className="text-[#065C9B] hover:text-[#4EAADA] transition-colors text-2xl">
+                                    {/* <a href="#" className="text-[#065C9B] hover:text-[#4EAADA] transition-colors text-2xl">
                                         <span className="sr-only">Twitter</span>
                                         <span>📱</span>
-                                    </a>
-                                    <a href="#" className="text-[#065C9B] hover:text-[#4EAADA] transition-colors text-2xl">
+                                    </a> */}
+                                    <a href="https://www.instagram.com/thamzeal.international/" className="text-[#065C9B] hover:text-[#4EAADA] transition-colors text-2xl">
                                         <span className="sr-only">Instagram</span>
-                                        <span>📷</span>
+                                        <span> <Instagram /></span>
                                     </a>
                                 </div>
                             </motion.div>

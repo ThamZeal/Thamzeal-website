@@ -173,7 +173,7 @@ function SuperVision() {
                                     <span>Ventures are led by the ones who built them from zero</span>
                                 </li>
                             </ul>
-                            <Button type="primary" href='/contact' title="Join Careers Lab" />
+                            <Button type="primary" href='https://careerslab.thamzeal.com' title="Join Careers Lab" />
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, x: 20 }}

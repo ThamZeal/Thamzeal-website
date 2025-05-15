@@ -206,9 +206,8 @@ function page() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
                             viewport={{ once: true }} className="text-gray-300 leading-relaxed">
-                            ThamZeal International is an emerging innovation-driven startup
-                            officially registered in January 2025 and operational since 2024.
-                            Their mission is to develop and sell their own digital products,
+                            ThamZeal International is an emerging innovation-driven startup.
+                            Our mission is to develop and sell their own digital products,
                             applications, and utility solutions. Similar to Google, they aim
                             to be a product-first company creating transformative products
                             across multiple industries including technology, e-commerce,

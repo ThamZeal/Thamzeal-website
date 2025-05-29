@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Button from "../components/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 
 
@@ -32,6 +31,8 @@ const what_we_do = [
         description:"Operating in stealth to test and build future tech in AI, robotics, behavioral mapping, and beyond."
     }
 ]
+
+// coreValues
 
 const coreValues = [
     {

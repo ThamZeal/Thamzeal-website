@@ -7,14 +7,14 @@ import { motion, AnimatePresence } from "framer-motion";
 
 
 const what_we_do = [
-    {
-        title:"Retail & Commerce",
-        description: "Reimagining customer journeys across eCommerce, brick-and-mortar, and global trade pipelines."
-    },
-    {
-        title:"Food Chain Ventures",
-        description: "Innovating how people experience food—from delivery ecosystems to hybrid kitchens."
-    },
+    // {
+    //     title:"Retail & Commerce",
+    //     description: "Reimagining customer journeys across eCommerce, brick-and-mortar, and global trade pipelines."
+    // },
+    // {
+    //     title:"Food Chain Ventures",
+    //     description: "Innovating how people experience food—from delivery ecosystems to hybrid kitchens."
+    // },
     {
         title:"Service Engines",
         description:"Powering businesses with next-gen B2B tools, platforms, and systems."

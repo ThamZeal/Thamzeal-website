@@ -57,24 +57,28 @@ const reviews = [
 
 const brand_divisions = [
     {
-        title: "Tech IT Solutions (Collaboration with Xyberai)",
+        title: "Tech IT Solutions (Collaboration with Xai)",
         desc: "Pioneering digital products and applications for transformative solutions.",
     },
     {
-        title: "E-commerce & Retail",
-        desc: "Creating seamless online shopping experiences for customers worldwide.",
+        title: "E-commerce & Retail Innovations",
+        desc: "As part of expanding e-commerce and retail initiatives, we’re working on innovative products aimed at transforming how users explore, shop, and interact online.",
     },
+    // {
+    //     title: "Import & Export",
+    //     desc: "Providing essential utility solutions for everyday convenience.",
+    // },
+    // {
+    //     title: "F&B Chain",
+    //     desc: "Open to exciting partnerships and collaborations in various industries.",
+    // },
     {
-        title: "Import & Export",
-        desc: "Providing essential utility solutions for everyday convenience.",
-    },
-    {
-        title: "F&B Chain",
-        desc: "Open to exciting partnerships and collaborations in various industries.",
+        title: "AI-Driven UI & Fast Development",
+        desc: "We're developing an AI-powered platform to speed up UI/UX design and product development."
     },
     {
         title: "AI-Driven Innovations",
-        desc: "Pioneering digital products and applications for transformative solutions.",
+        desc: "Pioneering our own digital products and applications for transformative solutions.",
     },
 ];
 

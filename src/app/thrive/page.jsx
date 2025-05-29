@@ -19,17 +19,17 @@ const services = [
         ],
         description: "From street-level stores to seamless e-commerce integrations, we redefine what shopping feels like—with real-time infrastructure and ethical sourcing at the core."
     },
-    {
-        title: "Food Chain & Culinary Services",
-        tagline: "Building What the World Craves.",
-        offerings: [
-            "Brand Development for Food Ventures",
-            "Smart Kitchen & Cloud Kitchen Implementation",
-            "Tech-Enabled Order Management Systems",
-            "Sustainable Sourcing & Culinary Innovation"
-        ],
-        description: "We help build next-generation food ventures—where taste meets tech, and every meal tells a story."
-    },
+    // {
+    //     title: "Food Chain & Culinary Services",
+    //     tagline: "Building What the World Craves.",
+    //     offerings: [
+    //         "Brand Development for Food Ventures",
+    //         "Smart Kitchen & Cloud Kitchen Implementation",
+    //         "Tech-Enabled Order Management Systems",
+    //         "Sustainable Sourcing & Culinary Innovation"
+    //     ],
+    //     description: "We help build next-generation food ventures—where taste meets tech, and every meal tells a story."
+    // },
     {
         title: "Technology & Innovation Services",
         tagline: "Solving Real Problems with Scalable Technology.",

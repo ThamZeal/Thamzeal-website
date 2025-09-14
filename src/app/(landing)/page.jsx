@@ -367,21 +367,74 @@ function page() {
                         <motion.div initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            viewport={{ once: true }} className="mt-12 flex justify-center">
+                            viewport={{ once: true }} className="mt-12 flex justify-center border border-black rounded-2xl p-6">
                             <img
                                 src="/images/X_AI.png"
                                 alt="XyberAI Logo"
-                                className="h-50 w-auto border border-black rounded-2xl"
+                                className="h-24 w-auto"
                             />
                         </motion.div>
                         <motion.div initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            viewport={{ once: true }} className="mt-12 flex justify-center">
+                            viewport={{ once: true }} className="mt-12 flex justify-center border border-black rounded-2xl p-6">
                             <img
                                 src="/images/Noculant_Logo.png"
                                 alt="Noculant Logo"
-                                className="h-50 w-auto border border-black rounded-2xl"
+                                className="h-24 w-auto"
+                            />
+                        </motion.div>
+                        <motion.div initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }} className="mt-12 flex justify-center items-center border border-black rounded-2xl p-6">
+                            <span className="text-3xl font-black tracking-tight text-gray-900 font-mono">Ivaa.AI</span>
+                        </motion.div>
+                    </div>
+                    
+                </div>
+            </section>
+
+            {/* clients */}
+
+            <section className="w-full bg-white py-16">
+                <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+                    {/* Section Heading */}
+                    <div className="text-gray-900 text-left mb-10">
+                        <motion.h1 initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }} className="text-4xl md:text-5xl font-bold mb-3">
+                            Our Clients
+                        </motion.h1>
+                        <motion.p initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }}>
+                            Trusted by leading organizations and innovative businesses worldwide.
+                        </motion.p>
+                    </div>
+
+                    {/* Client Logos */}
+                    <div className="flex flex-col md:flex-row justify-center space-x-4">
+                        <motion.div initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }} className="mt-12 flex justify-center border border-black rounded-2xl p-6">
+                            <img
+                                src="/images/astute.png"
+                                alt="Astute Logo"
+                                className="h-24 w-auto"
+                            />
+                        </motion.div>
+                        <motion.div initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }} className="mt-12 flex justify-center border border-black rounded-2xl p-6">
+                            <img
+                                src="/images/mooncoin.webp"
+                                alt="Mooncoin Logo"
+                                className="h-24 w-auto"
                             />
                         </motion.div>
                     </div>

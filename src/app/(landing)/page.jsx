@@ -346,49 +346,79 @@ function page() {
             <section className="w-full bg-gray-50 py-16">
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
                     {/* Section Heading */}
-                    <div className="text-gray-900 text-left mb-10">
+                    <div className="text-gray-900 text-center mb-16">
                         <motion.h1 initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            viewport={{ once: true }} className="text-4xl md:text-5xl font-bold mb-3">
+                            viewport={{ once: true }} className="text-4xl md:text-5xl font-bold mb-4">
                             Partnering with
                         </motion.h1>
                         <motion.p initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            viewport={{ once: true }}>
+                            transition={{ delay: 0.3 }}
+                            viewport={{ once: true }} className="text-lg text-gray-600">
                             Explore our diverse brand divisions and exciting collaboration
                             opportunities.
                         </motion.p>
                     </div>
 
                     {/* Partner Logo */}
-                    <div className="flex flex-col md:flex-row justify-center space-x-4">
+                    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
                         <motion.div initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            viewport={{ once: true }} className="mt-12 flex justify-center border border-black rounded-2xl p-6">
+                            viewport={{ once: true }} className="flex justify-center items-center p-8">
                             <img
                                 src="/images/X_AI.png"
                                 alt="XyberAI Logo"
-                                className="h-24 w-auto"
+                                className="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300"
                             />
                         </motion.div>
                         <motion.div initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            viewport={{ once: true }} className="mt-12 flex justify-center border border-black rounded-2xl p-6">
+                            transition={{ delay: 0.3 }}
+                            viewport={{ once: true }} className="flex justify-center items-center p-8">
                             <img
                                 src="/images/Noculant_Logo.png"
                                 alt="Noculant Logo"
-                                className="h-24 w-auto"
+                                className="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300"
                             />
                         </motion.div>
                         <motion.div initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            viewport={{ once: true }} className="mt-12 flex justify-center items-center border border-black rounded-2xl p-6">
-                            <span className="text-3xl font-black tracking-tight text-gray-900 font-mono">Ivaa.AI</span>
+                            transition={{ delay: 0.4 }}
+                            viewport={{ once: true }} className="flex justify-center items-center p-8">
+                            <img
+                                src="/images/IBN AI.jpeg"
+                                alt="IBN AI Logo"
+                                className="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300"
+                            />
+                        </motion.div>
+                        <motion.div initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5 }}
+                            viewport={{ once: true }} className="flex justify-center items-center p-8">
+                            <img
+                                src="/images/IBNS.webp"
+                                alt="IBNS Logo"
+                                className="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300"
+                            />
+                        </motion.div>
+                        <motion.div initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.6 }}
+                            viewport={{ once: true }} className="flex justify-center items-center p-8">
+                            <img
+                                src="/images/laundryful.png"
+                                alt="Laundry Ful Logo"
+                                className="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300"
+                            />
+                        </motion.div>
+                        <motion.div initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.7 }}
+                            viewport={{ once: true }} className="flex justify-center items-center p-8">
+                            <span className="text-2xl font-black tracking-tight text-gray-400 hover:text-gray-900 transition-all duration-300 font-mono">Ivaa.AI</span>
                         </motion.div>
                     </div>
                     
@@ -400,41 +430,41 @@ function page() {
             <section className="w-full bg-white py-16">
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
                     {/* Section Heading */}
-                    <div className="text-gray-900 text-left mb-10">
+                    <div className="text-gray-900 text-center mb-16">
                         <motion.h1 initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            viewport={{ once: true }} className="text-4xl md:text-5xl font-bold mb-3">
-                            Our Clients
+                            viewport={{ once: true }} className="text-4xl md:text-5xl font-bold mb-4">
+                            Trusted by teams and brands
                         </motion.h1>
                         <motion.p initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            viewport={{ once: true }}>
-                            Trusted by leading organizations and innovative businesses worldwide.
+                            transition={{ delay: 0.3 }}
+                            viewport={{ once: true }} className="text-lg text-gray-600">
+                            Some of the organizations we've partnered with.
                         </motion.p>
                     </div>
 
                     {/* Client Logos */}
-                    <div className="flex flex-col md:flex-row justify-center space-x-4">
+                    <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
                         <motion.div initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            viewport={{ once: true }} className="mt-12 flex justify-center border border-black rounded-2xl p-6">
+                            transition={{ delay: 0.4 }}
+                            viewport={{ once: true }} className="flex justify-center items-center p-8">
                             <img
                                 src="/images/astute.png"
-                                alt="Astute Logo"
-                                className="h-24 w-auto"
+                                alt="Astute Business Solutions"
+                                className="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300"
                             />
                         </motion.div>
                         <motion.div initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            viewport={{ once: true }} className="mt-12 flex justify-center border border-black rounded-2xl p-6">
+                            transition={{ delay: 0.5 }}
+                            viewport={{ once: true }} className="flex justify-center items-center p-8">
                             <img
                                 src="/images/mooncoin.webp"
-                                alt="Mooncoin Logo"
-                                className="h-24 w-auto"
+                                alt="Mooncoin Technologies"
+                                className="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300"
                             />
                         </motion.div>
                     </div>

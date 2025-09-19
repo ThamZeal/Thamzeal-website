@@ -5,6 +5,9 @@ import Button from "../components/button";
 import { motion,} from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import PartnersSection from "../components/PartnersSection";
+import ClientsSection from "../components/ClientsSection";
+import { getPartners, getClients } from "../../sanity/lib/data";
 
 const images = [
     "/banners/group-diverse-people-having-business-meeting_53876-25060.webp",
@@ -85,6 +88,8 @@ const brand_divisions = [
 function page() {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
+    const [partners, setPartners] = useState([]);
+    const [clients, setClients] = useState([]);
 
     useEffect(() => {
         const start = () => setLoading(true);
@@ -100,6 +105,24 @@ function page() {
             router.events?.off("routeChangeError", end);
         };
     }, [router]);
+
+    // Fetch partners and clients data from CMS
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const [partnersData, clientsData] = await Promise.all([
+                    getPartners(),
+                    getClients()
+                ]);
+                setPartners(partnersData);
+                setClients(clientsData);
+            } catch (error) {
+                console.error('Error fetching CMS data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
     
     const [index, setIndex] = useState(0);
 
@@ -342,135 +365,10 @@ function page() {
             </section> */}
 
             {/* partnerships */}
-
-            <section className="w-full bg-gray-50 py-16">
-                <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-                    {/* Section Heading */}
-                    <div className="text-gray-900 text-center mb-16">
-                        <motion.h1 initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            viewport={{ once: true }} className="text-4xl md:text-5xl font-bold mb-4">
-                            Partnering with
-                        </motion.h1>
-                        <motion.p initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                            viewport={{ once: true }} className="text-lg text-gray-600">
-                            Explore our diverse brand divisions and exciting collaboration
-                            opportunities.
-                        </motion.p>
-                    </div>
-
-                    {/* Partner Logo */}
-                    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-                        <motion.div initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            viewport={{ once: true }} className="flex justify-center items-center p-8">
-                            <img
-                                src="/images/X_AI.png"
-                                alt="XyberAI Logo"
-                                className="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300"
-                            />
-                        </motion.div>
-                        <motion.div initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                            viewport={{ once: true }} className="flex justify-center items-center p-8">
-                            <img
-                                src="/images/Noculant_Logo.png"
-                                alt="Noculant Logo"
-                                className="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300"
-                            />
-                        </motion.div>
-                        <motion.div initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
-                            viewport={{ once: true }} className="flex justify-center items-center p-8">
-                            <img
-                                src="/images/IBN AI.jpeg"
-                                alt="IBN AI Logo"
-                                className="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300"
-                            />
-                        </motion.div>
-                        <motion.div initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.5 }}
-                            viewport={{ once: true }} className="flex justify-center items-center p-8">
-                            <img
-                                src="/images/IBNS.webp"
-                                alt="IBNS Logo"
-                                className="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300"
-                            />
-                        </motion.div>
-                        <motion.div initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6 }}
-                            viewport={{ once: true }} className="flex justify-center items-center p-8">
-                            <img
-                                src="/images/laundryful.png"
-                                alt="Laundry Ful Logo"
-                                className="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300"
-                            />
-                        </motion.div>
-                        <motion.div initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.7 }}
-                            viewport={{ once: true }} className="flex justify-center items-center p-8">
-                            <span className="text-2xl font-black tracking-tight text-gray-400 hover:text-gray-900 transition-all duration-300 font-mono">Ivaa.AI</span>
-                        </motion.div>
-                    </div>
-                    
-                </div>
-            </section>
+            <PartnersSection partners={partners} />
 
             {/* clients */}
-
-            <section className="w-full bg-white py-16">
-                <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-                    {/* Section Heading */}
-                    <div className="text-gray-900 text-center mb-16">
-                        <motion.h1 initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            viewport={{ once: true }} className="text-4xl md:text-5xl font-bold mb-4">
-                            Trusted by teams and brands
-                        </motion.h1>
-                        <motion.p initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                            viewport={{ once: true }} className="text-lg text-gray-600">
-                            Some of the organizations we've partnered with.
-                        </motion.p>
-                    </div>
-
-                    {/* Client Logos */}
-                    <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
-                        <motion.div initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
-                            viewport={{ once: true }} className="flex justify-center items-center p-8">
-                            <img
-                                src="/images/astute.png"
-                                alt="Astute Business Solutions"
-                                className="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300"
-                            />
-                        </motion.div>
-                        <motion.div initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.5 }}
-                            viewport={{ once: true }} className="flex justify-center items-center p-8">
-                            <img
-                                src="/images/mooncoin.webp"
-                                alt="Mooncoin Technologies"
-                                className="h-16 w-auto grayscale hover:grayscale-0 transition-all duration-300"
-                            />
-                        </motion.div>
-                    </div>
-                    
-                </div>
-            </section>
+            <ClientsSection clients={clients} />
         </>
     );
 }

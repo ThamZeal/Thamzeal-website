@@ -79,7 +79,7 @@ function About() {
                             transition={{ delay: 0.2 }}
                             className="text-4xl md:text-5xl font-bold pb-5"
                         >
-                            Our Story : About ThamZeal International
+                            Our Story : About TZ International (TZ)
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -89,13 +89,13 @@ function About() {
                             className="text-gray-300 leading-relaxed"
                         >
                             In a world moving faster than ever—where solutions exist but the
-                            journey to find them feels broken—Thamzeal was born.<br></br><br></br> Our founder
+                            journey to find them feels broken—TZ was born.<br></br><br></br> Our founder
                             faced a problem. Not just the lack of answers, but the space
                             between the problem and its solution—the delay, the disconnection,
                             the noise. This gap wasn’t unique to one sector. It showed up in
                             retail. In food. In services. In tech. In talent.<br></br><br></br> That’s when we
                             realized: the future doesn't wait. It needs builders who don’t
-                            just react, but anticipate. So we created Thamzeal—not as a
+                            just react, but anticipate. So we created TZ—not as a
                             traditional company, but as a mission-driven engine to identify
                             the gaps before they show, and build what the world doesn’t know
                             it needs yet.<br></br><br></br> From challenges came conviction. And from
@@ -126,7 +126,7 @@ function About() {
                             viewport={{ once: true }}
                             className="rounded-2xl w-full max-w-sm md:max-w-md lg:max-w-lg"
                             src="/images/about.jpg"
-                            alt="ThamZeal"
+                            alt="TZ"
                         />
                     </div>
                 </div>
@@ -152,7 +152,7 @@ function About() {
                             transition={{ delay: 0.3 }}
                             viewport={{ once: true }}
                         >
-                            At ThamZeal International, we believe in building a smarter,
+                            At TZ International, we believe in building a smarter,
                             sustainable future through innovation, collaboration, and
                             purpose-driven action.
                         </motion.p>
@@ -199,7 +199,7 @@ function About() {
                                 📈 Vision 2030
                             </h2>
                             <p className="text-gray-700">
-                                By 2030, ThamZeal International aims to establish a powerful
+                                By 2030, TZ International aims to establish a powerful
                                 global presence with multiple brand divisions, AI-integrated
                                 solutions, and a strong impact across industries including
                                 marketing, design, software, and sustainability.
@@ -268,7 +268,7 @@ function About() {
                             viewport={{ once: true }}
                             className="rounded-2xl w-full max-w-sm md:max-w-md lg:max-w-lg"
                             src="/banners/group-diverse-people-having-business-meeting_53876-25060.webp"
-                            alt="ThamZeal"
+                            alt="TZ"
                         />
                     </div>
 

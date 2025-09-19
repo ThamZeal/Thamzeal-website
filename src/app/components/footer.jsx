@@ -12,7 +12,7 @@ function Footer() {
                             <img src="logo.svg" width={84} alt="ThamZeal Logo" className="h-10 w-auto" />
                             <span className="text-lg hidden">ThamZeal <br /> International</span>
                         </Link>
-                        <p className="mt-3 text-white text-3xl">The way forward in change</p>
+                        <p className="mt-3 text-white text-3xl">The Way Forward in Change</p>
                     </div>
 
                     {/* Middle Section - Quick Links */}

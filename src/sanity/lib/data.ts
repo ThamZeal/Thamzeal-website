@@ -1,5 +1,5 @@
 import { client } from './client'
-import { PARTNERS_QUERY, CLIENTS_QUERY, PARTNER_BY_ID_QUERY, CLIENT_BY_ID_QUERY, SUCCESS_METRICS_QUERY, PROJECTS_QUERY } from './queries'
+import { PARTNERS_QUERY, CLIENTS_QUERY, PARTNER_BY_ID_QUERY, CLIENT_BY_ID_QUERY, SUCCESS_METRICS_QUERY, PROJECTS_QUERY, RECOGNITIONS_QUERY, RECOGNITION_BY_ID_QUERY } from './queries'
 
 // TypeScript interfaces for the data
 export interface Partner {
@@ -14,6 +14,15 @@ export interface Client {
   _id: string
   name: string
   order: number
+  logo: string
+  logoAlt: string
+}
+
+export interface Recognition {
+  _id: string
+  name: string
+  order: number
+  description?: string
   logo: string
   logoAlt: string
 }
@@ -101,5 +110,27 @@ export async function getProjects(): Promise<Project[]> {
   } catch (error) {
     console.error('Error fetching projects:', error)
     return []
+  }
+}
+
+// Fetch all active recognitions
+export async function getRecognitions(): Promise<Recognition[]> {
+  try {
+    const recognitions = await client.fetch(RECOGNITIONS_QUERY)
+    return recognitions || []
+  } catch (error) {
+    console.error('Error fetching recognitions:', error)
+    return []
+  }
+}
+
+// Fetch a single recognition by ID
+export async function getRecognitionById(id: string): Promise<Recognition | null> {
+  try {
+    const recognition = await client.fetch(RECOGNITION_BY_ID_QUERY, { id })
+    return recognition || null
+  } catch (error) {
+    console.error('Error fetching recognition:', error)
+    return null
   }
 }

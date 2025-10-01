@@ -55,3 +55,23 @@ export const PROJECTS_QUERY = `*[_type == "project" && isActive == true] | order
   order,
   isActive
 }`
+
+export const RECOGNITIONS_QUERY = `*[_type == "recognition" && isActive != false] | order(order asc, name asc) {
+  _id,
+  name,
+  order,
+  description,
+  "logo": logo.asset->url,
+  "logoAlt": logo.alt
+}`
+
+// Query for a single recognition
+export const RECOGNITION_BY_ID_QUERY = `*[_type == "recognition" && _id == $id][0] {
+  _id,
+  name,
+  order,
+  description,
+  isActive,
+  "logo": logo.asset->url,
+  "logoAlt": logo.alt
+}`

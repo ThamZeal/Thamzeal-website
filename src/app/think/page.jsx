@@ -1,7 +1,10 @@
 "use client";
 
+import { React, useState, useEffect } from "react";
 import Button from "../components/button";
 import { motion } from "framer-motion";
+import RecognitionsSection from "../components/RecognitionsSection";
+import { getRecognitions } from "../../sanity/lib/data";
 
 
 
@@ -63,6 +66,20 @@ const coreValues = [
 ];
 
 function About() {
+    const [recognitions, setRecognitions] = useState([]);
+
+    useEffect(() => {
+        async function fetchRecognitions() {
+            try {
+                const recognitionsData = await getRecognitions();
+                setRecognitions(recognitionsData);
+            } catch (error) {
+                console.error('Error fetching recognitions:', error);
+            }
+        }
+        
+        fetchRecognitions();
+    }, []);
     
     return (
         <>
@@ -349,61 +366,7 @@ function About() {
             </section>
 
             {/* Recognized by Section */}
-            <section className="w-full bg-white py-16">
-                <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-                    {/* Section Heading */}
-                    <div className="text-center mb-12">
-                        <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            viewport={{ once: true }}
-                            className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
-                        >
-                            Recognized by
-                        </motion.h2>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                            viewport={{ once: true }}
-                            className="text-gray-600 max-w-2xl mx-auto"
-                        >
-                            Officially registered and recognized by leading government initiatives supporting innovation and entrepreneurship in India.
-                        </motion.p>
-                    </div>
-
-                    {/* Logos */}
-                    <div className="flex flex-col md:flex-row justify-center items-center gap-8">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
-                            viewport={{ once: true }}
-                            className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200"
-                        >
-                            <img 
-                                src="/images/MSME.png" 
-                                alt="MSME Registered" 
-                                className="h-16 w-auto max-w-[200px] object-contain"
-                            />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.5 }}
-                            viewport={{ once: true }}
-                            className="bg-white p-6 rounded-2xl shadow-lg border border-gray-200"
-                        >
-                            <img 
-                                src="/images/Startup-India.png" 
-                                alt="Startup India" 
-                                className="h-16 w-auto max-w-[200px] object-contain"
-                            />
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
+            <RecognitionsSection recognitions={recognitions} />
 
             {/* Call to Action */}
             <section className="w-full bg-gradient-to-r from-[#4047A7] to-[#4EAADA] py-16">

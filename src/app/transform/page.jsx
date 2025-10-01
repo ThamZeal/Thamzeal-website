@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Button from "../components/button";
 import Image from "next/image";
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import SuccessMetricsSection from "../components/SuccessMetricsSection";
 
 const innovationSections = [
     {
@@ -275,56 +276,7 @@ function TransformStream() {
 
 
             {/* Success Metrics */}
-            <section className="w-full bg-gray-50 py-16">
-                <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-                    <div className="text-gray-900 text-left mb-10">
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            viewport={{ once: true }}
-                            className="text-4xl md:text-5xl font-bold"
-                        >
-                            Our Success Metrics
-                        </motion.h1>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                            viewport={{ once: true }}
-                        >
-                            Key performance indicators across our business divisions.
-                        </motion.p>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <MetricCard
-                            number="3+"
-                            title="Strategic Partnerships"
-                            description="Global collaborations driving innovation"
-                            delay={0.2}
-                        />
-                        <MetricCard
-                            number="5"
-                            title="Brand Divisions"
-                            description="Specialized teams delivering sector-specific solutions"
-                            delay={0.3}
-                        />
-                        <MetricCard
-                            number="85%"
-                            title="Client Retention"
-                            description="Strong relationships built on trust and results"
-                            delay={0.4}
-                        />
-                        {/* <MetricCard
-                            number="20+"
-                            title="Countries Served"
-                            description="Global reach with local understanding"
-                            delay={0.5}
-                        /> */}
-                    </div>
-                </div>
-            </section>
+            <SuccessMetricsSection />
 
             {/* Collaboration Opportunities */}
             <section className="w-full bg-black text-white py-16" id='collab'>
@@ -451,20 +403,6 @@ const AnimatedContent = ({ children, isVisible }) => {
     );
 };
 
-const MetricCard = ({ number, title, description, delay }) => {
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay }}
-            viewport={{ once: true }}
-            className="bg-white hover:bg-blue-100 border-2 border-black hover:border-[#065C9B] p-6 rounded-2xl shadow-lg text-center transition-all duration-300"
-        >
-            <span className="text-4xl md:text-5xl font-bold text-[#065C9B] block mb-2">{number}</span>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
-            <p className="text-gray-600">{description}</p>
-        </motion.div>
-    );
-};
+
 
 export default TransformStream;

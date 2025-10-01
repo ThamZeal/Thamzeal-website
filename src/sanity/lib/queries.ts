@@ -16,6 +16,15 @@ export const CLIENTS_QUERY = `*[_type == "client" && isActive != false] | order(
   "logoAlt": logo.alt
 }`
 
+export const SUCCESS_METRICS_QUERY = `
+  *[_type == "successMetric" && isActive == true] | order(_createdAt asc) {
+    _id,
+    title,
+    number,
+    description
+  }
+`
+
 // Query for a single partner
 export const PARTNER_BY_ID_QUERY = `*[_type == "partner" && _id == $id][0] {
   _id,

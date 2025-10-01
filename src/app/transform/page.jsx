@@ -1,68 +1,57 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Button from "../components/button";
 import Image from "next/image";
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import SuccessMetricsSection from "../components/SuccessMetricsSection";
+import { getProjects, Project } from "../../sanity/lib/data";
 
-const innovationSections = [
-    {
-        label: "Ongoing Projects",
-        projects: [
-            {
-                codename: "Project EmberNest",
-                teaser: "Something crafted for those who celebrate. It brings together details that matter when everything must feel perfect. But it doesn’t shout. It curates.",
-                guessIt: "Built for moments that must feel eternal. It doesn’t host—it harmonizes. It’s less about the list, more about the meaning."
-            },
-            {
-                codename: "Project InnerOrbit",
-                teaser: "A closed-loop environment is taking shape. It doesn’t follow the outside world—it evolves its own. A community in sync, but never static.",
-                guessIt: "A private constellation for minds on the same frequency. It doesn’t connect people. It aligns them."
-            }
-        ]
-    },
-    {
-        label: "Coming Soon / Incubation",
-        projects: [
-            {
-                codename: "Project Qibra",
-                teaser: "Every direction leads somewhere, but some lead inward. A space is forming—not bound by walls—but by purpose. Time and meaning merge here.",
-                guessIt: "Direction meets design. Not a compass, not a schedule. Something in between. Where presence becomes experience."
-            },
-            {
-                codename: "Project NexusStream",
-                teaser: "Imagine if platforms collided. Not violently—but productively. A quiet merge of influence, utility, and elevation. What rises from this will be… very alive.",
-                guessIt: "If influence had infrastructure… If discovery wasn’t noisy… If platforms merged quietly, this is how it would feel."
-            }
-        ]
-    },
-    {
-        label: "Future Concepts",
-        projects: [
-            {
-                codename: "Project W1",
-                teaser: "An atmosphere with no gravity. Thoughts fly freer here. Expression is reborn without attachment—pure, raw, unfiltered. Watch carefully. You might miss it.",
-                guessIt: "A zone without identity—yet full of voices. Raw signals in real time. If silence had shape, this would be it."
-            },
-            {
-                codename: "Project RE:Core",
-                teaser: "What if the hunt reversed? What if the search knew your need before you typed it? This isn’t a marketplace. It’s a mirrored exchange.",
-                guessIt: "The mirror blinks first. What you seek begins seeking you. The current reverses. The roles change."
-            },
-            {
-                codename: "Project DeltaPulse",
-                teaser: "A system being molded to feel like a touch, not a transaction. Designed to move across lines that were never meant to divide. Something fundamental—about to shift.",
-                guessIt: "Frictionless isn’t just UI. It’s crossing systems, boundaries, and brands without losing your fingerprint. Not one tap. One intention."
-            }
-        ]
-    }
-];
+// Category mapping for display labels
+const categoryLabels = {
+    ongoing: "Ongoing Projects",
+    incubation: "Coming Soon / Incubation",
+    future: "Future Concepts"
+};
+
+
 
 function TransformStream() {
     const [expandedDivision, setExpandedDivision] = useState(null);
     const [openProject, setOpenProject] = useState(null);
+    const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [innovationSections, setInnovationSections] = useState([]);
+
+    // Fetch projects from CMS
+    useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                setLoading(true);
+                const fetchedProjects = await getProjects();
+                setProjects(fetchedProjects);
+
+                // Group projects by category
+                const grouped = Object.entries(categoryLabels).map(([key, label]) => ({
+                    label,
+                    projects: fetchedProjects
+                        .filter(project => project.category === key)
+                        .sort((a, b) => a.order - b.order)
+                })).filter(section => section.projects.length > 0);
+
+                setInnovationSections(grouped);
+            } catch (error) {
+                console.error('Error fetching projects:', error);
+                // Fallback to empty sections
+                setInnovationSections([]);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProjects();
+    }, []);
 
     const toggle = (sectionIndex, projectIndex) => {
         const key = `${sectionIndex}-${projectIndex}`;
@@ -148,58 +137,69 @@ function TransformStream() {
                         </motion.p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {innovationSections.flatMap((section, sectionIndex) =>
-                            section.projects.map((project, projectIndex) => {
-                                const isOpen = openProject === `${sectionIndex}-${projectIndex}`;
-                                const status = section.label;
-                                const statusColor =
-                                    status === "Ongoing Projects"
-                                        ? "bg-green-900 text-green-300"
-                                        : status.includes("Incubation")
-                                            ? "bg-yellow-900 text-yellow-300"
-                                            : "bg-purple-900 text-purple-300";
+                    {loading ? (
+                        <div className="flex justify-center items-center py-12">
+                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#4EAADA]"></div>
+                        </div>
+                    ) : innovationSections.length === 0 ? (
+                        <div className="text-center py-12">
+                            <p className="text-gray-400">No projects available at the moment.</p>
+                            <p className="text-gray-500 text-sm mt-2">Check back soon for exciting updates!</p>
+                        </div>
+                    ) : (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {innovationSections.flatMap((section, sectionIndex) =>
+                                section.projects.map((project, projectIndex) => {
+                                    const isOpen = openProject === `${sectionIndex}-${projectIndex}`;
+                                    const status = section.label;
+                                    const statusColor =
+                                        status === "Ongoing Projects"
+                                            ? "bg-green-900 text-green-300"
+                                            : status.includes("Incubation")
+                                                ? "bg-yellow-900 text-yellow-300"
+                                                : "bg-purple-900 text-purple-300";
 
-                                return (
-                                    <motion.div
-                                        key={project.codename}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.1 * projectIndex }}
-                                        viewport={{ once: true }}
-                                        className="bg-gray-900 p-6 rounded-2xl border border-gray-800 hover:border-[#4EAADA] transition-all duration-300"
-                                    >
-                                        <div className="flex justify-between items-start mb-2">
-                                            <div>
-                                                <h3 className="text-xl font-bold text-[#4EAADA]">{project.codename}</h3>
-                                                <span className={`mt-1 inline-block px-3 py-1 text-xs font-medium rounded-full ${statusColor}`}>
-                                                    {status}
-                                                </span>
+                                    return (
+                                        <motion.div
+                                            key={project.codename}
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.1 * projectIndex }}
+                                            viewport={{ once: true }}
+                                            className="bg-gray-900 p-6 rounded-2xl border border-gray-800 hover:border-[#4EAADA] transition-all duration-300"
+                                        >
+                                            <div className="flex justify-between items-start mb-2">
+                                                <div>
+                                                    <h3 className="text-xl font-bold text-[#4EAADA]">{project.codename}</h3>
+                                                    <span className={`mt-1 inline-block px-3 py-1 text-xs font-medium rounded-full ${statusColor}`}>
+                                                        {status}
+                                                    </span>
+                                                </div>
+                                                <button onClick={() => toggle(sectionIndex, projectIndex)} className="text-[#4EAADA]">
+                                                    {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                                                </button>
                                             </div>
-                                            <button onClick={() => toggle(sectionIndex, projectIndex)} className="text-[#4EAADA]">
-                                                {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                                            </button>
-                                        </div>
 
-                                        <AnimatePresence initial={false}>
-                                            {isOpen && (
-                                                <motion.div
-                                                    className="mt-2 border-t border-gray-800 pt-4 text-sm text-gray-300"
-                                                    initial={{ opacity: 0, height: 0 }}
-                                                    animate={{ opacity: 1, height: 'auto' }}
-                                                    exit={{ opacity: 0, height: 0 }}
-                                                    transition={{ duration: 0.3 }}
-                                                >
-                                                    <p className="text-gray-400 mb-2">{project.teaser}</p>
-                                                    <p className="text-gray-400">{project.guessIt}</p>
-                                                </motion.div>
-                                            )}
-                                        </AnimatePresence>
-                                    </motion.div>
-                                );
-                            })
-                        )}
-                    </div>
+                                            <AnimatePresence initial={false}>
+                                                {isOpen && (
+                                                    <motion.div
+                                                        className="mt-2 border-t border-gray-800 pt-4 text-sm text-gray-300"
+                                                        initial={{ opacity: 0, height: 0 }}
+                                                        animate={{ opacity: 1, height: 'auto' }}
+                                                        exit={{ opacity: 0, height: 0 }}
+                                                        transition={{ duration: 0.3 }}
+                                                    >
+                                                        <p className="text-gray-400 mb-2">{project.teaser}</p>
+                                                        <p className="text-gray-400">{project.guessIt}</p>
+                                                    </motion.div>
+                                                )}
+                                            </AnimatePresence>
+                                        </motion.div>
+                                    );
+                                })
+                            )}
+                        </div>
+                    )}
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}

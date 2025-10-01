@@ -44,3 +44,14 @@ export const CLIENT_BY_ID_QUERY = `*[_type == "client" && _id == $id][0] {
   "logo": logo.asset->url,
   "logoAlt": logo.alt
 }`
+
+// Query for all active projects
+export const PROJECTS_QUERY = `*[_type == "project" && isActive == true] | order(category asc, order asc) {
+  _id,
+  codename,
+  teaser,
+  guessIt,
+  category,
+  order,
+  isActive
+}`

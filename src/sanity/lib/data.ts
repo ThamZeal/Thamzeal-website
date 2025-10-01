@@ -1,5 +1,5 @@
 import { client } from './client'
-import { PARTNERS_QUERY, CLIENTS_QUERY, PARTNER_BY_ID_QUERY, CLIENT_BY_ID_QUERY, SUCCESS_METRICS_QUERY } from './queries'
+import { PARTNERS_QUERY, CLIENTS_QUERY, PARTNER_BY_ID_QUERY, CLIENT_BY_ID_QUERY, SUCCESS_METRICS_QUERY, PROJECTS_QUERY } from './queries'
 
 // TypeScript interfaces for the data
 export interface Partner {
@@ -26,6 +26,16 @@ export interface SuccessMetric {
   order: number
   bgColor?: string
   borderColor?: string
+}
+
+export interface Project {
+  _id: string
+  codename: string
+  teaser: string
+  guessIt: string
+  category: 'ongoing' | 'incubation' | 'future'
+  order: number
+  isActive: boolean
 }
 
 // Fetch all active partners
@@ -79,6 +89,17 @@ export async function getSuccessMetrics(): Promise<SuccessMetric[]> {
     return metrics || []
   } catch (error) {
     console.error('Error fetching success metrics:', error)
+    return []
+  }
+}
+
+// Fetch all active projects
+export async function getProjects(): Promise<Project[]> {
+  try {
+    const projects = await client.fetch(PROJECTS_QUERY)
+    return projects || []
+  } catch (error) {
+    console.error('Error fetching projects:', error)
     return []
   }
 }

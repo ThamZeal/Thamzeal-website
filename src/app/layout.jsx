@@ -1,7 +1,9 @@
 import { Poppins, Roboto } from 'next/font/google';
 import "./globals.css";
 import ConditionalLayout from './components/ConditionalLayout';
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 
 // Load fonts with specific weights
 const poppins = Poppins({
@@ -94,6 +96,7 @@ export default function RootLayout({ children }) {
           {children}
         </ConditionalLayout>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
